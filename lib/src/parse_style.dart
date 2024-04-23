@@ -24,34 +24,34 @@ Map<String, dynamic> parseStyle(String style) {
 }
 
 Map<String, double> parsePadding(List<String> classes) {
-  final paddingMap = <String, double>{
-    "pt": 0,
-    "pr": 0,
-    "pb": 0,
-    "pl": 0,
-  };
+  // Priority low
+  final p = _valueFromClasses(classes, "p-");
+  // Priority medium
+  final px = _valueFromClasses(classes, "px-");
+  final py = _valueFromClasses(classes, "py-");
+  // Priority high
+  final pt = _valueFromClasses(classes, "pt-");
+  final pr = _valueFromClasses(classes, "pr-");
+  final pb = _valueFromClasses(classes, "pb-");
+  final pl = _valueFromClasses(classes, "pl-");
 
-  for (final className in classes) {
-    if (className.startsWith("p-")) {
-      final padding = className.split("-")[1];
-      paddingMap["pt"] = double.parse(padding);
-      paddingMap["pr"] = double.parse(padding);
-      paddingMap["pb"] = double.parse(padding);
-      paddingMap["pl"] = double.parse(padding);
-    } else if (className.startsWith("pt-")) {
-      final padding = className.split("-")[1];
-      paddingMap["pt"] = double.parse(padding);
-    } else if (className.startsWith("pr-")) {
-      final padding = className.split("-")[1];
-      paddingMap["pr"] = double.parse(padding);
-    } else if (className.startsWith("pb-")) {
-      final padding = className.split("-")[1];
-      paddingMap["pb"] = double.parse(padding);
-    } else if (className.startsWith("pl-")) {
-      final padding = className.split("-")[1];
-      paddingMap["pl"] = double.parse(padding);
-    }
+  return {
+    "pt": pt ?? py ?? p ?? 0,
+    "pb": pb ?? py ?? p ?? 0,
+    "pr": pr ?? px ?? p ?? 0,
+    "pl": pl ?? px ?? p ?? 0,
+  };
+}
+
+double? _valueFromClasses(List<String> input, String prefix) {
+  final classWithPrefix = input.firstWhere(
+    (element) => element.startsWith(prefix),
+    orElse: () => "",
+  );
+  if (classWithPrefix.isEmpty) {
+    return null;
   }
 
-  return paddingMap;
+  final value = classWithPrefix.substring(prefix.length);
+  return double.tryParse(value);
 }

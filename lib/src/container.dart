@@ -1,22 +1,33 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutterwind/src/parse_style/parse_style.dart';
 
-Container FwContainer({
-  String? style,
-  required Widget child,
-}) {
-  if (style == null) {
-    return Container(child: child);
+class FwContainer extends StatelessWidget {
+  final String? style;
+  final Widget? child;
+
+  const FwContainer({
+    super.key,
+    this.style,
+    this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (style == null) {
+      return Container(
+        child: child,
+      );
+    }
+
+    final containerStyle = ContainerStyle.from(style!);
+
+    return Container(
+      padding: containerStyle.padding,
+      margin: containerStyle.margin,
+      decoration: containerStyle.decoration,
+      child: child,
+    );
   }
-
-  final parsedStyle = ContainerStyle.from(style);
-
-  return Container(
-    padding: parsedStyle.padding,
-    margin: parsedStyle.margin,
-    decoration: parsedStyle.decoration,
-    child: child,
-  );
 }
 
 class ContainerStyle {

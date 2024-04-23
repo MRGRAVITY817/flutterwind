@@ -1,17 +1,19 @@
+import 'package:flutterwind/src/parse_style/value_from_classes.dart';
+
 Map<String, double> parseSpacing({
   required List<String> classes,
   required Map<String, dynamic> prefixMap,
 }) {
   // Every sides (priority low)
-  final everySides = _valueFromClasses(classes, "${prefixMap["every"]}-");
+  final everySides = _extractValue(classes, "${prefixMap["every"]}-");
   // Axial sides (priority medium)
-  final xSides = _valueFromClasses(classes, "${prefixMap["x"]}-");
-  final ySides = _valueFromClasses(classes, "${prefixMap["y"]}-");
+  final xSides = _extractValue(classes, "${prefixMap["x"]}-");
+  final ySides = _extractValue(classes, "${prefixMap["y"]}-");
   // Individual sides (priority high)
-  final top = _valueFromClasses(classes, "${prefixMap["t"]}-");
-  final right = _valueFromClasses(classes, "${prefixMap["r"]}-");
-  final bottom = _valueFromClasses(classes, "${prefixMap["b"]}-");
-  final left = _valueFromClasses(classes, "${prefixMap["l"]}-");
+  final top = _extractValue(classes, "${prefixMap["t"]}-");
+  final right = _extractValue(classes, "${prefixMap["r"]}-");
+  final bottom = _extractValue(classes, "${prefixMap["b"]}-");
+  final left = _extractValue(classes, "${prefixMap["l"]}-");
 
   return {
     prefixMap["t"]: top ?? ySides ?? everySides ?? 0,
@@ -21,16 +23,11 @@ Map<String, double> parseSpacing({
   };
 }
 
-double? _valueFromClasses(List<String> input, String prefix) {
-  final classWithPrefix = input.firstWhere(
-    (element) => element.startsWith(prefix),
-    orElse: () => "",
-  );
-  if (classWithPrefix.isEmpty) {
-    return null;
-  }
+double? _extractValue(List<String> input, String prefix) {
+  final value = valueFromClasses(input, prefix);
 
-  final value = classWithPrefix.substring(prefix.length);
+  if (value == null) return null;
+
   return double.tryParse(value);
 }
 

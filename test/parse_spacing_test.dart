@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterwind/src/parse_style.dart';
+import 'package:flutterwind/src/parse_style/parse_spacing.dart';
 
 void main() {
   // system under test
@@ -114,6 +114,21 @@ void main() {
       expect(output['pr'], 8.0);
       expect(output['pb'], 0.0);
       expect(output['pl'], 4.0);
+    });
+  });
+
+  group("parse margin", () {
+    final sut = parseMargin;
+
+    test('margin all sides', () {
+      final input = ["m-4"];
+
+      final output = sut(input);
+
+      expect(output['mt'], 4.0);
+      expect(output['mr'], 4.0);
+      expect(output['mb'], 4.0);
+      expect(output['ml'], 4.0);
     });
   });
 }

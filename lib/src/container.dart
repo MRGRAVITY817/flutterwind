@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutterwind/src/parse_style.dart';
+import 'package:flutterwind/src/parse_style/parse_style.dart';
 
 Container FwContainer({
   String? style,

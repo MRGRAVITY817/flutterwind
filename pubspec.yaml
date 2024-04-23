@@ -1,5 +1,7 @@
 name: flutterwind
 description: A starting point for Dart libraries or applications.
+homepage: https://flutterwind.vercel.app/
+repository: https://github.com/MRGRAVITY817/flutterwind
 version: 0.0.1
 # repository: https://github.com/my_org/my_repo
 

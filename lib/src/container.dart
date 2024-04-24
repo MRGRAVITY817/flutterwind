@@ -59,6 +59,10 @@ class ContainerStyle {
       ),
       decoration: BoxDecoration(
         color: styleMap['bg-color'],
+        border: Border.all(
+          color: styleMap['border-color'],
+          width: 2.0,
+        ),
         // borderRadius: BorderRadius.only(
         //   topLeft: Radius.circular(styleMap['roundedTL']),
         //   topRight: Radius.circular(styleMap['roundedTR']),

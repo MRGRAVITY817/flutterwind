@@ -1,11 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutterwind/src/parse_style/default_color_palette.dart';
-import 'package:flutterwind/src/parse_style/parse_background_color.dart';
+import 'package:flutterwind/src/parse_style/parse_color.dart';
 
 void main() {
   group("parse background color", () {
-    final sut = parseBackgroundColor;
+    Map<String, Color> sut(List<String> classes) {
+      return parseColor(classes, ["bg"]);
+    }
 
     test("parse background color", () {
       final input = ["bg-red-500"];
@@ -56,6 +58,20 @@ void main() {
         output['bg-color'],
         Color(defaultColorPalette["red-500"]!).withOpacity(0.5),
       );
+    });
+  });
+
+  group("parse border color", () {
+    Map<String, Color> sut(List<String> classes) {
+      return parseColor(classes, ["border"]);
+    }
+
+    test("parse border color", () {
+      final input = ["border-red-500"];
+
+      final output = sut(input);
+
+      expect(output['border-color'], Color(0xFFEF4444));
     });
   });
 }

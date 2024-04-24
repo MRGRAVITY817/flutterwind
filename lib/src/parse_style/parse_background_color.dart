@@ -14,7 +14,7 @@ import 'package:flutterwind/src/parse_style/default_color_palette.dart';
 /// Output:
 /// ```
 /// {
-///   "bgColor": Color(0xFFEF4444),
+///   "bg-color": Color(0xFFEF4444),
 /// }
 Map<String, Color> parseBackgroundColor(List<String> classes) {
   final classesWithBgPrefix =
@@ -22,7 +22,7 @@ Map<String, Color> parseBackgroundColor(List<String> classes) {
 
   if (classesWithBgPrefix.isEmpty || classesWithBgPrefix.length > 1) {
     return {
-      "bgColor": Color(defaultColorPalette["transparent"]!),
+      "bg-color": Color(defaultColorPalette["transparent"]!),
     };
   }
 
@@ -35,11 +35,11 @@ Map<String, Color> parseBackgroundColor(List<String> classes) {
 
   if (colorFromPalette == null) {
     return {
-      "bgColor": Color(defaultColorPalette["transparent"]!),
+      "bg-color": Color(defaultColorPalette["transparent"]!),
     };
   }
 
   return {
-    "bgColor": Color(colorFromPalette).withOpacity(opacity),
+    "bg-color": Color(colorFromPalette).withOpacity(opacity),
   };
 }

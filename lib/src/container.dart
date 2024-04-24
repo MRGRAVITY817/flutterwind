@@ -58,7 +58,13 @@ class ContainerStyle {
         left: styleMap['ml'],
       ),
       decoration: BoxDecoration(
-        color: styleMap['bgColor'],
+        color: styleMap['bg-color'],
+        // borderRadius: BorderRadius.only(
+        //   topLeft: Radius.circular(styleMap['roundedTL']),
+        //   topRight: Radius.circular(styleMap['roundedTR']),
+        //   bottomRight: Radius.circular(styleMap['roundedBR']),
+        //   bottomLeft: Radius.circular(styleMap['roundedBL']),
+        // ),
       ),
     );
   }

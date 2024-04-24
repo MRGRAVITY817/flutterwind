@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutterwind/src/parse_style/parse_style.dart';
 
@@ -19,7 +21,7 @@ class FwContainer extends StatelessWidget {
       );
     }
 
-    final containerStyle = ContainerStyle.from(style!);
+    final containerStyle = ContainerStyle.from(context, style!);
 
     return Container(
       height: containerStyle.height,
@@ -47,7 +49,8 @@ class ContainerStyle {
     this.width,
   });
 
-  factory ContainerStyle.from(String style) {
+  factory ContainerStyle.from(BuildContext context, String style) {
+    final isDark = Theme.of(context).colorScheme.brightness == Brightness.dark;
     final styleMap = parseStyle(style);
 
     return ContainerStyle(
@@ -66,9 +69,13 @@ class ContainerStyle {
         left: styleMap['ml'],
       ),
       decoration: BoxDecoration(
-        color: styleMap['bg-color'],
+        color: isDark
+            ? (styleMap['dark:bg-color'] ?? styleMap['bg-color'])
+            : styleMap['bg-color'],
         border: Border.all(
-          color: styleMap['border-color'],
+          color: isDark
+              ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
+              : styleMap['border-color'],
           width: 2.0,
         ),
         // borderRadius: BorderRadius.only(

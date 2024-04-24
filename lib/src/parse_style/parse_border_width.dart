@@ -44,7 +44,7 @@ Map<String, double> parseOneBorderWidth(String className) {
 
   final validClassSet = {...sideSet, ...sizeSet};
   if (splitted.isNotEmpty && splitted.intersection(validClassSet).isEmpty) {
-    return _zeroBorder;
+    return {};
   }
 
   final sideKey = sideSet.intersection(splitted);

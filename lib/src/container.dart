@@ -72,11 +72,31 @@ class ContainerStyle {
         color: isDark
             ? (styleMap['dark:bg-color'] ?? styleMap['bg-color'])
             : styleMap['bg-color'],
-        border: Border.all(
-          color: isDark
-              ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
-              : styleMap['border-color'],
-          width: 2.0,
+        border: Border(
+          top: BorderSide(
+            color: isDark
+                ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
+                : styleMap['border-color'],
+            width: styleMap['border-top-width'],
+          ),
+          bottom: BorderSide(
+            color: isDark
+                ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
+                : styleMap['border-color'],
+            width: styleMap['border-bottom-width'],
+          ),
+          left: BorderSide(
+            color: isDark
+                ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
+                : styleMap['border-color'],
+            width: styleMap['border-left-width'],
+          ),
+          right: BorderSide(
+            color: isDark
+                ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
+                : styleMap['border-color'],
+            width: styleMap['border-right-width'],
+          ),
         ),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(styleMap['border-radius-tl']),

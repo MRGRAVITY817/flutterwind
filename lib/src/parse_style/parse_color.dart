@@ -26,7 +26,10 @@ Map<String, Color> parseColor(List<String> classes, List<String> prefixes) {
       parseColorFromPrefix(
         classes
             .where(
-              (c) => c.startsWith("$prefix-"),
+              (c) =>
+                  c.startsWith("$prefix-") &&
+                  defaultColorPalette.keys
+                      .contains(c.replaceFirst("$prefix-", "").split("/")[0]),
             )
             .toList(),
         prefix,

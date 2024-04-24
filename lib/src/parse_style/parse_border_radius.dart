@@ -57,7 +57,7 @@ Map<String, double> parseOneBorderRadius(String className) {
   // check if splitted contains classes which is not a corner nor size.
   final validClassSet = {...cornerSet, ...sizeSet};
   if (splitted.isNotEmpty && splitted.intersection(validClassSet).isEmpty) {
-    return _noRadius;
+    return {};
   }
 
   final cornerKey = cornerSet.intersection(splitted);

@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutterwind/src/parse_style/default_color_palette.dart';
 import 'package:flutterwind/src/parse_style/parse_background_color.dart';
 
 void main() {
@@ -44,6 +45,17 @@ void main() {
       final output = sut(input);
 
       expect(output['bgColor'], Color(0x00000000));
+    });
+
+    test("parse background color with opacity", () {
+      final input = ["bg-red-500/50"];
+
+      final output = sut(input);
+
+      expect(
+        output['bgColor'],
+        Color(defaultColorPalette["red-500"]!).withOpacity(0.5),
+      );
     });
   });
 }

@@ -27,8 +27,11 @@ Map<String, Color> parseBackgroundColor(List<String> classes) {
   }
 
   final bgColor = classesWithBgPrefix.first;
-  final color = bgColor.replaceFirst("bg-", "");
-  final colorFromPalette = defaultColorPalette[color];
+  final colorWithOpacity = bgColor.replaceFirst("bg-", "").split("/");
+  final colorFromPalette = defaultColorPalette[colorWithOpacity[0]];
+  final opacity = colorWithOpacity.length > 1
+      ? (double.tryParse(colorWithOpacity[1]) ?? 100.0) * 0.01
+      : 1.0;
 
   if (colorFromPalette == null) {
     return {
@@ -37,6 +40,6 @@ Map<String, Color> parseBackgroundColor(List<String> classes) {
   }
 
   return {
-    "bgColor": Color(colorFromPalette),
+    "bgColor": Color(colorFromPalette).withOpacity(opacity),
   };
 }

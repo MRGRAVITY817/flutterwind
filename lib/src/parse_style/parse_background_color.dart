@@ -17,15 +17,16 @@ import 'package:flutterwind/src/parse_style/default_color_palette.dart';
 ///   "bgColor": Color(0xFFEF4444),
 /// }
 Map<String, Color> parseBackgroundColor(List<String> classes) {
-  final bgColor = classes.firstWhere(
-    (e) => e.startsWith("bg-"),
-    orElse: () => "",
-  );
+  final classesWithBgPrefix =
+      classes.where((e) => e.startsWith("bg-")).toList();
 
-  if (bgColor.isEmpty) {
-    return {};
+  if (classesWithBgPrefix.isEmpty || classesWithBgPrefix.length > 1) {
+    return {
+      "bgColor": Color(defaultColorPalette["transparent"]!),
+    };
   }
 
+  final bgColor = classesWithBgPrefix.first;
   final color = bgColor.replaceFirst("bg-", "");
   final colorFromPalette = defaultColorPalette[color];
 

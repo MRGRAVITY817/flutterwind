@@ -13,5 +13,37 @@ void main() {
 
       expect(output['bgColor'], Color(0xFFEF4444));
     });
+
+    test("parse background color with invalid color", () {
+      final input = ["bg-invalid-500"];
+
+      final output = sut(input);
+
+      expect(output['bgColor'], Color(0x00000000));
+    });
+
+    test("parse background color with empty input", () {
+      final input = <String>[];
+
+      final output = sut(input);
+
+      expect(output['bgColor'], Color(0x00000000));
+    });
+
+    test("parse background color with empty color", () {
+      final input = ["bg-"];
+
+      final output = sut(input);
+
+      expect(output['bgColor'], Color(0x00000000));
+    });
+
+    test("parse multiple background colors", () {
+      final input = ["bg-red-500", "bg-blue-500"];
+
+      final output = sut(input);
+
+      expect(output['bgColor'], Color(0x00000000));
+    });
   });
 }

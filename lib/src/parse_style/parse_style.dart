@@ -1,3 +1,4 @@
+import 'package:flutterwind/src/parse_style/parse_background_color.dart';
 import 'package:flutterwind/src/parse_style/parse_spacing.dart';
 
 /// Parse style string to map.
@@ -23,5 +24,6 @@ Map<String, dynamic> parseStyle(String style) {
   return {
     ...parsePadding(classes),
     ...parseMargin(classes),
+    ...parseBackgroundColor(classes),
   };
 }

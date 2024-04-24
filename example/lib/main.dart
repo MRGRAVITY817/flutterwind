@@ -30,7 +30,7 @@ class MyHomePage extends StatelessWidget {
     return const Scaffold(
       body: Center(
         child: FwContainer(
-          style: "px-12 py-24 bg-red-500 border-red-700",
+          style: "px-12 py-24 bg-red-500 border-red-700 h-64 w-64",
           child: Text(
             'Hello, World!',
             style: TextStyle(color: Colors.white),

@@ -22,6 +22,8 @@ class FwContainer extends StatelessWidget {
     final containerStyle = ContainerStyle.from(style!);
 
     return Container(
+      height: containerStyle.height,
+      width: containerStyle.width,
       padding: containerStyle.padding,
       margin: containerStyle.margin,
       decoration: containerStyle.decoration,
@@ -34,17 +36,23 @@ class ContainerStyle {
   final EdgeInsets? padding;
   final EdgeInsets? margin;
   final BoxDecoration? decoration;
+  final double? height;
+  final double? width;
 
   ContainerStyle({
     this.padding,
     this.margin,
     this.decoration,
+    this.height,
+    this.width,
   });
 
   factory ContainerStyle.from(String style) {
     final styleMap = parseStyle(style);
 
     return ContainerStyle(
+      height: styleMap['h'],
+      width: styleMap['w'],
       padding: EdgeInsets.only(
         top: styleMap['pt'],
         right: styleMap['pr'],

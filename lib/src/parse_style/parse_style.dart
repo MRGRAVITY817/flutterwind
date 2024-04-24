@@ -1,4 +1,5 @@
 import 'package:flutterwind/src/parse_style/parse_background_color.dart';
+import 'package:flutterwind/src/parse_style/parse_border_radius.dart';
 import 'package:flutterwind/src/parse_style/parse_color.dart';
 import 'package:flutterwind/src/parse_style/parse_height_width.dart';
 import 'package:flutterwind/src/parse_style/parse_spacing.dart';
@@ -27,6 +28,7 @@ Map<String, dynamic> parseStyle(String style) {
     ...parseHeightWidth(classes),
     ...parsePadding(classes),
     ...parseMargin(classes),
+    ...parseBorderRadius(classes),
     ...parseBackgroundColor(classes),
     ...parseColor(classes, [
       "bg",

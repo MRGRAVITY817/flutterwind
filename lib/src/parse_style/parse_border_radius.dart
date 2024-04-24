@@ -6,6 +6,25 @@ const _noRadius = <String, double>{
   "border-radius-bl": 0.0
 };
 
+/// Parse border radius classes.
+///
+/// Example:
+/// ```dart
+/// final classes = ["rounded", "rounded-lg", "rounded-tl-md"];
+/// final output = parseBorderRadius(classes);
+///
+/// print(output);
+/// ```
+///
+/// Output:
+/// ```
+/// {
+///   "border-radius-tl": 4.0,
+///   "border-radius-tr": 6.0,
+///   "border-radius-br": 8.0,
+///   "border-radius-bl": 12.0,
+/// }
+/// ```
 Map<String, double> parseBorderRadius(List<String> classes) {
   final onlyRoundedClasses =
       classes.where((e) => e.startsWith("rounded")).toList();
@@ -18,7 +37,7 @@ Map<String, double> parseBorderRadius(List<String> classes) {
   // The more detailed class should override the less detailed class.
   final borderRadius = onlyRoundedClasses
       .map(parseOneBorderRadius)
-      .reduce((value, element) => {...value, ...element});
+      .fold(_noRadius, (value, element) => {...value, ...element});
 
   return borderRadius;
 }

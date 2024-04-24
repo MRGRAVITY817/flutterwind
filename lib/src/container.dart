@@ -78,12 +78,12 @@ class ContainerStyle {
               : styleMap['border-color'],
           width: 2.0,
         ),
-        // borderRadius: BorderRadius.only(
-        //   topLeft: Radius.circular(styleMap['roundedTL']),
-        //   topRight: Radius.circular(styleMap['roundedTR']),
-        //   bottomRight: Radius.circular(styleMap['roundedBR']),
-        //   bottomLeft: Radius.circular(styleMap['roundedBL']),
-        // ),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(styleMap['border-radius-tl']),
+          topRight: Radius.circular(styleMap['border-radius-tr']),
+          bottomRight: Radius.circular(styleMap['border-radius-br']),
+          bottomLeft: Radius.circular(styleMap['border-radius-bl']),
+        ),
       ),
     );
   }

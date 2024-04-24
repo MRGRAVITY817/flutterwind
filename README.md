@@ -49,17 +49,17 @@ Container(
 )
 
 // With Flutterwind - 17 lines of code
-Container.fw(
+FwContainer(
   style: "p-8 m-8 bg-white rounded-lg shadow-md",
   child: Column.fw(
     style: "items-center justify-center",
     children: [
-      Text.fw(
+      FwText(
         "Hello World",
         style: "text-2xl font-bold text-black",
       ),
       const SizedBox(height: 8),
-      Text.fw(
+      FwText(
         "This is a simple card",
         style: "text-base font-normal text-gray-600",
       ),

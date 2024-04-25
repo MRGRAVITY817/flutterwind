@@ -82,7 +82,7 @@
 - [x] Text Decoration Style
 - [x] Text Decoration Thickness
 - [x] Text Underline Offset
-- [ ] Text Transform
+- [x] Text Transform
 - [ ] Text Overflow
 - [ ] Text Wrap
 - [ ] Text Indent

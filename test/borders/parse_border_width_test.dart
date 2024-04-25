@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterwind/src/parse_style/parse_border_width.dart';
+import 'package:flutterwind/src/parse_style/borders/parse_border_width.dart';
 
 void main() {
   group("parse border width", () {

@@ -44,10 +44,17 @@ class FwTextStyle {
             ? (styleMap["dark:text-color"] ?? styleMap["text-color"])
             : styleMap["text-color"]) ??
         Colors.black;
+
+    // Underline offset
     final double underlineOffset = styleMap["text-underline-offset"] ?? 0;
     final useUnderlineOffset =
         styleMap["text-decoration"] == TextDecoration.underline &&
             styleMap["text-underline-offset"] != null;
+
+    // Letter spacing
+    final double? letterSpacing = styleMap["letter-spacing"] != null
+        ? styleMap["letter-spacing"] * (styleMap["font-size"] ?? 16)
+        : null;
 
     return FwTextStyle(
       textStyle: TextStyle(
@@ -60,6 +67,7 @@ class FwTextStyle {
         decorationColor: styleMap["decoration-color"],
         decorationStyle: styleMap["text-decoration-style"],
         decorationThickness: styleMap["text-decoration-thickness"],
+        letterSpacing: letterSpacing,
         shadows: useUnderlineOffset
             ? [
                 Shadow(

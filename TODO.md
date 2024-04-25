@@ -23,10 +23,10 @@
 - [ ] Z-Index
 
 ## Flexbox & Grid
-- [ ] Flex Basis
+- [ ] Flex Basis (might not be needed)
 - [ ] Flex Direction
 - [ ] Flex Wrap
-- [ ] Flex
+- [x] Flex
 - [ ] Flex Grow
 - [ ] Flex Shrink
 - [ ] Order

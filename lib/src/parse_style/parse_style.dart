@@ -55,6 +55,7 @@ Map<String, dynamic> parseStyle(String style, Size size) {
         "dark:text",
       ],
     ),
+    // Flexbox & Grid
     // Typography
     ...parseFontSize(classes),
     ...parseFontWeight(classes),

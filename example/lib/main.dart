@@ -75,6 +75,36 @@ class MyHomePage extends StatelessWidget {
                 text: "Hello, World!",
               ),
             ),
+            const SizedBox(height: 20),
+            const FwContainer(
+              style: "bg-yellow-500 p-4",
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FwFlexible(
+                    style: "flex-1 bg-green-500",
+                    child: FwText(
+                      style: "text-white text-sm",
+                      text: "Hello, World!",
+                    ),
+                  ),
+                  FwFlexible(
+                    style: "flex-1 bg-indigo-500",
+                    child: FwText(
+                      style: "text-white text-sm",
+                      text: "Hello, World!",
+                    ),
+                  ),
+                  FwFlexible(
+                    style: "flex-1 bg-red-500",
+                    child: FwText(
+                      style: "text-white text-sm",
+                      text: "Hello, World!",
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

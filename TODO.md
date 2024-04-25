@@ -78,7 +78,7 @@
 - [x] Text Align
 - [x] Text Color
 - [x] Text Decoration
-- [ ] Text Decoration Color
+- [x] Text Decoration Color
 - [ ] Text Decoration Style
 - [ ] Text Decoration Thickness
 - [ ] Text Underline Offset

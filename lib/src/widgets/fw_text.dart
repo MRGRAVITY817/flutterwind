@@ -50,8 +50,9 @@ class FwTextStyle {
         fontSize: styleMap["font-size"],
         fontWeight: styleMap["font-weight"],
         fontStyle: styleMap["font-style"],
-        decoration: styleMap["text-decoration"],
         fontFeatures: [...styleMap["font-features-numeric"] ?? []],
+        decoration: styleMap["text-decoration"],
+        decorationColor: styleMap["decoration-color"],
       ),
       textAlign: styleMap["text-align"],
     );

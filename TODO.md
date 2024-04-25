@@ -66,7 +66,7 @@
 - [ ] Font Family
 - [x] Font Size
 - [ ] Font Smoothing
-- [ ] Font Style
+- [x] Font Style
 - [x] Font Weight
 - [ ] Font Variant Numeric
 - [ ] Letter Spacing
@@ -75,7 +75,7 @@
 - [ ] List Style Image
 - [ ] List Style Position
 - [ ] List Style Type
-- [ ] Text Align
+- [x] Text Align
 - [x] Text Color
 - [ ] Text Decoration
 - [ ] Text Decoration Color

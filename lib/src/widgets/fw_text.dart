@@ -49,6 +49,7 @@ class FwTextStyle {
             : styleMap["text-color"],
         fontSize: styleMap["font-size"],
         fontWeight: styleMap["font-weight"],
+        fontStyle: styleMap["font-style"],
       ),
       textAlign: styleMap["text-align"],
     );

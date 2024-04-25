@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterwind/src/parse_style/parse_height_width.dart';
+import 'package:flutterwind/src/parse_style/parse_sizing.dart';
 
 void main() {
   group("parse height and width", () {

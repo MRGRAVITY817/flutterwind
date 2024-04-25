@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterwind/src/parse_style/parse_size.dart';
+import 'package:flutterwind/src/parse_style/parse_sizing.dart';
 
 void main() {
   group("parse size", () {
@@ -10,8 +10,8 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['h'], 12.0);
-      expect(output['w'], 12.0);
+      expect(output['h'], 48.0);
+      expect(output['w'], 48.0);
     });
 
     test("size is not a number", () {
@@ -19,8 +19,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['h'], 0.0);
-      expect(output['w'], 0.0);
+      expect(output, {'h': null, 'w': null});
     });
 
     test("size with empty input", () {
@@ -28,8 +27,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['h'], 0.0);
-      expect(output['w'], 0.0);
+      expect(output, {'h': null, 'w': null});
     });
 
     test("size with empty size", () {
@@ -37,8 +35,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['h'], 0.0);
-      expect(output['w'], 0.0);
+      expect(output, {'h': null, 'w': null});
     });
 
     test("parse multiple sizes", () {
@@ -46,8 +43,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['h'], 0.0);
-      expect(output['w'], 0.0);
+      expect(output, {'h': 0.0, 'w': 0.0});
     });
   });
 }

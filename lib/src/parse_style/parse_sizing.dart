@@ -1,4 +1,3 @@
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutterwind/src/parse_style/value_from_classes.dart';
 
@@ -32,6 +31,39 @@ Map<String, double?> parseHeightWidth(List<String> classes, Size size) {
       size: size,
     )
   };
+}
+
+/// Parse size classes.
+/// Size class is used to set both height and width with the same value.
+///
+/// Example:
+/// ```dart
+/// final classes = ["size-12"];
+/// final output = parseSize(classes);
+///
+/// print(output);
+/// ```
+///
+/// Output:
+/// ```
+/// {
+///   "h": 12.0,
+///   "w": 12.0,
+/// }
+/// ```
+Map<String, double?> parseSize(List<String> classes) {
+  // if there's multiple `size-` classes, it will 0.0
+  if (classes.where((className) => className.startsWith("size-")).length > 1) {
+    return {"h": 0.0, "w": 0.0};
+  }
+
+  final size = parseDimension(
+    className: valueFromClasses(classes, "size-") ?? "",
+    isHeight: true,
+    size: Size.zero,
+  );
+
+  return {"h": size, "w": size};
 }
 
 double? parseDimension({
@@ -132,3 +164,4 @@ const Map<String, double> heightWidthFractionalSizeMap = {
 // max	width: max-content;
 // fit	width: fit-content;
 // };
+

@@ -3,8 +3,7 @@ import 'package:flutterwind/src/parse_style/parse_background_color.dart';
 import 'package:flutterwind/src/parse_style/parse_border_radius.dart';
 import 'package:flutterwind/src/parse_style/parse_border_width.dart';
 import 'package:flutterwind/src/parse_style/parse_color.dart';
-import 'package:flutterwind/src/parse_style/parse_height_width.dart';
-import 'package:flutterwind/src/parse_style/parse_size.dart';
+import 'package:flutterwind/src/parse_style/parse_sizing.dart';
 import 'package:flutterwind/src/parse_style/parse_spacing.dart';
 
 /// Parse style string to map.

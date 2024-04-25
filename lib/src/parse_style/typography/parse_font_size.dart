@@ -1,3 +1,20 @@
+/// Parse font size classes
+///
+/// Example:
+/// ```dart
+/// final classes = ["text-2xl"];
+/// final output = parseFontSize(classes);
+///
+/// print(output);
+/// ```
+///
+/// Output:
+/// ```
+/// {
+///   "font-size": 24.0,
+///   "line-height": 32.0,
+/// }
+/// ```
 Map<String, double> parseFontSize(List<String> classes) {
   final fontSizes = fontSizeMap.keys.toList();
   final fontSizeClasses =

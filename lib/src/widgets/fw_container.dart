@@ -51,6 +51,10 @@ class FwContainerStyle {
     final isDark = Theme.of(context).colorScheme.brightness == Brightness.dark;
     final size = MediaQuery.sizeOf(context);
     final styleMap = parseStyle(style, size);
+    final borderColor = (isDark
+            ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
+            : styleMap['border-color']) ??
+        Colors.transparent;
 
     return FwContainerStyle(
       height: styleMap['h'],
@@ -73,27 +77,19 @@ class FwContainerStyle {
             : styleMap['bg-color'],
         border: Border(
           top: BorderSide(
-            color: isDark
-                ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
-                : styleMap['border-color'],
+            color: borderColor,
             width: styleMap['border-top-width'],
           ),
           bottom: BorderSide(
-            color: isDark
-                ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
-                : styleMap['border-color'],
+            color: borderColor,
             width: styleMap['border-bottom-width'],
           ),
           left: BorderSide(
-            color: isDark
-                ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
-                : styleMap['border-color'],
+            color: borderColor,
             width: styleMap['border-left-width'],
           ),
           right: BorderSide(
-            color: isDark
-                ? (styleMap['dark:border-color'] ?? styleMap['border-color'])
-                : styleMap['border-color'],
+            color: borderColor,
             width: styleMap['border-right-width'],
           ),
         ),

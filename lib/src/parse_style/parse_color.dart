@@ -44,9 +44,7 @@ Map<String, Color> parseColorFromPrefix(List<String> classes, String prefix) {
   final mapKey = "$prefix-color";
 
   if (classes.isEmpty || classes.length > 1) {
-    return {
-      mapKey: Color(defaultColorPalette["transparent"]!),
-    };
+    return {};
   }
 
   final colorWithOpacity =
@@ -58,9 +56,7 @@ Map<String, Color> parseColorFromPrefix(List<String> classes, String prefix) {
       : 1.0;
 
   if (colorFromPalette == null) {
-    return {
-      mapKey: Color(defaultColorPalette["transparent"]!),
-    };
+    return {};
   }
 
   return {

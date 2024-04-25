@@ -40,11 +40,15 @@ class FwTextStyle {
     final isDark = Theme.of(context).colorScheme.brightness == Brightness.dark;
     final styleMap = parseStyle(style, MediaQuery.sizeOf(context));
 
+    print("styleMap: $styleMap");
+
     return FwTextStyle(
       textStyle: TextStyle(
-          color: isDark
-              ? (styleMap["dark:text-color"] ?? styleMap["text-color"])
-              : styleMap["text-color"]),
+        color: isDark
+            ? (styleMap["dark:text-color"] ?? styleMap["text-color"])
+            : styleMap["text-color"],
+        fontSize: styleMap["font-size"],
+      ),
       textAlign: styleMap["text-align"],
     );
   }

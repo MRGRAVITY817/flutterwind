@@ -22,7 +22,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['bg-color'], Color(defaultColorPalette["transparent"]!));
+      expect(output['bg-color'], null);
     });
 
     test("parse background color with empty input", () {
@@ -30,7 +30,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['bg-color'], Color(defaultColorPalette["transparent"]!));
+      expect(output['bg-color'], null);
     });
 
     test("parse background color with empty color", () {
@@ -38,7 +38,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['bg-color'], Color(defaultColorPalette["transparent"]!));
+      expect(output['bg-color'], null);
     });
 
     test("parse multiple background colors", () {
@@ -46,7 +46,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['bg-color'], Color(defaultColorPalette["transparent"]!));
+      expect(output['bg-color'], null);
     });
 
     test("parse background color with opacity", () {

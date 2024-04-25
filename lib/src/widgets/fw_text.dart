@@ -18,9 +18,11 @@ class FwText extends StatelessWidget {
     }
 
     final fwStyle = FwTextStyle.from(context, style!);
+    final transformedText =
+        fwStyle.textTransform != null ? fwStyle.textTransform!(text) : text;
 
     return Text(
-      text,
+      transformedText,
       textAlign: fwStyle.textAlign,
       style: fwStyle.textStyle,
     );
@@ -30,10 +32,12 @@ class FwText extends StatelessWidget {
 class FwTextStyle {
   final TextStyle? textStyle;
   final TextAlign? textAlign;
+  final String Function(String)? textTransform;
 
   const FwTextStyle({
     this.textStyle,
     this.textAlign,
+    this.textTransform,
   });
 
   factory FwTextStyle.from(BuildContext context, String style) {
@@ -78,6 +82,7 @@ class FwTextStyle {
             : null,
       ),
       textAlign: styleMap["text-align"],
+      textTransform: styleMap["text-transform"],
     );
   }
 }

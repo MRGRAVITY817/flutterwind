@@ -42,7 +42,7 @@ class MyHomePage extends StatelessWidget {
                   children: [
                     const FwText(
                       style:
-                          "text-white/90 text-2xl text-center font-black tracking-widest",
+                          "text-white/90 text-2xl text-center font-black tracking-widest lowercase",
                       text: "Welcome to FlutterWind!",
                     ),
                     const SizedBox(height: 20),

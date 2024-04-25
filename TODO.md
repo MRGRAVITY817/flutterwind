@@ -69,7 +69,7 @@
 - [x] Font Style
 - [x] Font Weight
 - [x] Font Variant Numeric
-- [ ] Letter Spacing
+- [x] Letter Spacing
 - [ ] Line Clamp
 - [ ] Line Height
 - [ ] List Style Image

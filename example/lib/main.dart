@@ -47,13 +47,13 @@ class MyHomePage extends StatelessWidget {
                     SizedBox(height: 20),
                     FwText(
                       style:
-                          "text-indigo-500 text-2xl text-center font-light italic",
+                          "text-indigo-500 text-2xl text-center font-light italic underline",
                       text: "Hello, World!",
                     ),
                     SizedBox(height: 20),
                     FwText(
                       style:
-                          "text-green-100 text-3xl text-center font-medium italic slashed-zero",
+                          "text-green-100 text-3xl text-center font-medium italic slashed-zero overline",
                       text: "000",
                     ),
                   ],

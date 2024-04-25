@@ -77,7 +77,7 @@
 - [ ] List Style Type
 - [x] Text Align
 - [x] Text Color
-- [ ] Text Decoration
+- [x] Text Decoration
 - [ ] Text Decoration Color
 - [ ] Text Decoration Style
 - [ ] Text Decoration Thickness

@@ -64,10 +64,10 @@
 
 ## Typography
 - [ ] Font Family
-- [ ] Font Size
+- [x] Font Size
 - [ ] Font Smoothing
 - [ ] Font Style
-- [ ] Font Weight
+- [x] Font Weight
 - [ ] Font Variant Numeric
 - [ ] Letter Spacing
 - [ ] Line Clamp

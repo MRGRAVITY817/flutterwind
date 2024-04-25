@@ -60,7 +60,7 @@
 - [x] Height
 - [ ] Min-Height
 - [ ] Max-Height
-- [ ] Size
+- [x] Size
 
 ## Typography
 - [ ] Font Family

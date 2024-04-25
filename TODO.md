@@ -80,8 +80,8 @@
 - [x] Text Decoration
 - [x] Text Decoration Color
 - [x] Text Decoration Style
-- [ ] Text Decoration Thickness
-- [ ] Text Underline Offset
+- [x] Text Decoration Thickness
+- [x] Text Underline Offset
 - [ ] Text Transform
 - [ ] Text Overflow
 - [ ] Text Wrap

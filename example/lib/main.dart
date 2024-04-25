@@ -48,7 +48,7 @@ class MyHomePage extends StatelessWidget {
                     FwText(
                       style: styles([
                         "text-indigo-500 text-2xl text-center",
-                        "font-light italic underline",
+                        "font-light italic underline underline-offset-4",
                         "decoration-sky-400 decoration-dashed decoration-4",
                       ]),
                       text: "Hello, World!",

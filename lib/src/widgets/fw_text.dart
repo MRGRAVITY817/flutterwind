@@ -40,13 +40,18 @@ class FwTextStyle {
     final isDark = Theme.of(context).colorScheme.brightness == Brightness.dark;
     final styleMap = parseStyle(style, MediaQuery.sizeOf(context));
 
-    print("styleMap: $styleMap");
+    final textColor = (isDark
+            ? (styleMap["dark:text-color"] ?? styleMap["text-color"])
+            : styleMap["text-color"]) ??
+        Colors.black;
+    final double underlineOffset = styleMap["text-underline-offset"] ?? 0;
+    final useUnderlineOffset =
+        styleMap["text-decoration"] == TextDecoration.underline &&
+            styleMap["text-underline-offset"] != null;
 
     return FwTextStyle(
       textStyle: TextStyle(
-        color: isDark
-            ? (styleMap["dark:text-color"] ?? styleMap["text-color"])
-            : styleMap["text-color"],
+        color: useUnderlineOffset ? Colors.transparent : textColor,
         fontSize: styleMap["font-size"],
         fontWeight: styleMap["font-weight"],
         fontStyle: styleMap["font-style"],
@@ -55,6 +60,14 @@ class FwTextStyle {
         decorationColor: styleMap["decoration-color"],
         decorationStyle: styleMap["text-decoration-style"],
         decorationThickness: styleMap["text-decoration-thickness"],
+        shadows: useUnderlineOffset
+            ? [
+                Shadow(
+                  color: textColor,
+                  offset: Offset(0, -underlineOffset),
+                ),
+              ]
+            : null,
       ),
       textAlign: styleMap["text-align"],
     );

@@ -54,6 +54,7 @@ class FwTextStyle {
         decoration: styleMap["text-decoration"],
         decorationColor: styleMap["decoration-color"],
         decorationStyle: styleMap["text-decoration-style"],
+        decorationThickness: styleMap["text-decoration-thickness"],
       ),
       textAlign: styleMap["text-align"],
     );

@@ -53,7 +53,7 @@ void main() {
 
       final output = sut(input, size);
 
-      expect(output, {'h': null, 'w': null});
+      expect(output, {});
     });
   });
 }

@@ -42,10 +42,7 @@ class MyHomePage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             FwContainer(
-              style: "p-4 bg-green-500",
-              child: FwContainer(
-                style: "w-40 h-40 bg-blue-300 rounded-md",
-              ),
+              style: "size-40 bg-blue-300 rounded-xl",
             ),
           ],
         ),

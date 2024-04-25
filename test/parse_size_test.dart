@@ -19,7 +19,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output, {'h': null, 'w': null});
+      expect(output, {});
     });
 
     test("size with empty input", () {
@@ -27,7 +27,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output, {'h': null, 'w': null});
+      expect(output, {});
     });
 
     test("size with empty size", () {
@@ -35,7 +35,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output, {'h': null, 'w': null});
+      expect(output, {});
     });
 
     test("parse multiple sizes", () {
@@ -43,7 +43,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output, {'h': 0.0, 'w': 0.0});
+      expect(output, {});
     });
   });
 }

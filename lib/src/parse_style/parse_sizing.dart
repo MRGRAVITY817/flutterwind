@@ -19,17 +19,20 @@ import 'package:flutterwind/src/parse_style/value_from_classes.dart';
 /// }
 /// ```
 Map<String, double?> parseHeightWidth(List<String> classes, Size size) {
+  final h = parseDimension(
+    className: valueFromClasses(classes, "h-") ?? "",
+    isHeight: true,
+    size: size,
+  );
+
+  final w = parseDimension(
+    className: valueFromClasses(classes, "w-") ?? "",
+    isHeight: false,
+    size: size,
+  );
   return {
-    "h": parseDimension(
-      className: valueFromClasses(classes, "h-") ?? "",
-      isHeight: true,
-      size: size,
-    ),
-    "w": parseDimension(
-      className: valueFromClasses(classes, "w-") ?? "",
-      isHeight: false,
-      size: size,
-    )
+    ...h != null ? {"h": h} : {},
+    ...w != null ? {"w": w} : {},
   };
 }
 
@@ -54,7 +57,7 @@ Map<String, double?> parseHeightWidth(List<String> classes, Size size) {
 Map<String, double?> parseSize(List<String> classes) {
   // if there's multiple `size-` classes, it will 0.0
   if (classes.where((className) => className.startsWith("size-")).length > 1) {
-    return {"h": 0.0, "w": 0.0};
+    return {};
   }
 
   final size = parseDimension(
@@ -63,7 +66,7 @@ Map<String, double?> parseSize(List<String> classes) {
     size: Size.zero,
   );
 
-  return {"h": size, "w": size};
+  return size != null ? {"h": size, "w": size} : {};
 }
 
 double? parseDimension({

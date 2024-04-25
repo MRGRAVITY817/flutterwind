@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutterwind/src/parse_style/parse_style.dart';
 
 class FwContainer extends StatelessWidget {
@@ -21,7 +19,7 @@ class FwContainer extends StatelessWidget {
       );
     }
 
-    final containerStyle = ContainerStyle.from(context, style!);
+    final containerStyle = FwContainerStyle.from(context, style!);
 
     return Container(
       height: containerStyle.height,
@@ -34,14 +32,14 @@ class FwContainer extends StatelessWidget {
   }
 }
 
-class ContainerStyle {
+class FwContainerStyle {
   final EdgeInsets? padding;
   final EdgeInsets? margin;
   final BoxDecoration? decoration;
   final double? height;
   final double? width;
 
-  ContainerStyle({
+  FwContainerStyle({
     this.padding,
     this.margin,
     this.decoration,
@@ -49,12 +47,12 @@ class ContainerStyle {
     this.width,
   });
 
-  factory ContainerStyle.from(BuildContext context, String style) {
+  factory FwContainerStyle.from(BuildContext context, String style) {
     final isDark = Theme.of(context).colorScheme.brightness == Brightness.dark;
     final size = MediaQuery.sizeOf(context);
     final styleMap = parseStyle(style, size);
 
-    return ContainerStyle(
+    return FwContainerStyle(
       height: styleMap['h'],
       width: styleMap['w'],
       padding: EdgeInsets.only(

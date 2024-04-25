@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterwind/src/parse_style/utils/match_one_class.dart';
 
 /// Parses text align classes
 ///
@@ -19,16 +20,11 @@ import 'package:flutter/material.dart';
 /// }
 /// ```
 Map<String, TextAlign> parseTextAlign(List<String> classes) {
-  final matchedClasses =
-      classes.where((c) => textAlignClassMap.keys.contains(c));
-
-  if (matchedClasses.isEmpty || matchedClasses.length > 1) {
-    return {};
-  }
-
-  final textAlign = textAlignClassMap[matchedClasses.first];
-
-  return textAlign != null ? {"text-align": textAlign} : {};
+  return matchOneClassMap(
+    classes: classes,
+    classMap: textAlignClassMap,
+    mapKey: "text-align",
+  );
 }
 
 const Map<String, TextAlign> textAlignClassMap = {

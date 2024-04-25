@@ -1,3 +1,5 @@
+import 'package:flutterwind/src/parse_style/utils/match_one_class.dart';
+
 /// Parse font size classes
 ///
 /// Example:
@@ -16,20 +18,17 @@
 /// }
 /// ```
 Map<String, double> parseFontSize(List<String> classes) {
-  final fontSizes = fontSizeMap.keys.toList();
-  final fontSizeClasses =
-      classes.where((element) => fontSizes.contains(element));
-
-  if (fontSizeClasses.isEmpty || fontSizeClasses.length > 1) {
-    return {};
-  }
-
-  final fontSize = fontSizeMap[fontSizeClasses.first];
-  final lineHeight = lineHeightMap[fontSizeClasses.first];
-
   return {
-    ...fontSize != null ? {"font-size": fontSize} : {},
-    ...lineHeight != null ? {"line-height": lineHeight} : {},
+    ...matchOneClassMap(
+      classes: classes,
+      classMap: fontSizeMap,
+      mapKey: "font-size",
+    ),
+    ...matchOneClassMap(
+      classes: classes,
+      classMap: lineHeightMap,
+      mapKey: "line-height",
+    ),
   };
 }
 

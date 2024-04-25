@@ -29,12 +29,11 @@ import 'package:flutterwind/src/parse_style/utils/match_one_class.dart';
 /// }
 /// ```
 Map<String, FontWeight> parseFontWeight(List<String> classes) {
-  final fontWeight = matchOneClass(
+  return matchOneClassMap(
     classes: classes,
     classMap: fontWeightClassMap,
+    mapKey: "font-weight",
   );
-
-  return fontWeight != null ? {"font-weight": fontWeight} : {};
 }
 
 const Map<String, FontWeight> fontWeightClassMap = {

@@ -7,6 +7,7 @@ import 'package:flutterwind/src/parse_style/parse_sizing.dart';
 import 'package:flutterwind/src/parse_style/parse_spacing.dart';
 import 'package:flutterwind/src/parse_style/typography/parse_font_size.dart';
 import 'package:flutterwind/src/parse_style/typography/parse_font_weight.dart';
+import 'package:flutterwind/src/parse_style/typography/parse_text_align.dart';
 
 /// Parse style string to map.
 ///
@@ -50,5 +51,6 @@ Map<String, dynamic> parseStyle(String style, Size size) {
     // Typography
     ...parseFontSize(classes),
     ...parseFontWeight(classes),
+    ...parseTextAlign(classes),
   };
 }

@@ -37,9 +37,9 @@ class MyHomePage extends StatelessWidget {
               style:
                   "px-40 py-24 bg-red-500 border-4 border-red-800 rounded-2xl",
               child: FwContainer(
-                style: "w-64 h-64 bg-blue-300 rounded-l-3xl",
+                style: "w-64 h-64 bg-blue-300 rounded-l-3xl py-4",
                 child: FwText(
-                  style: "text-white/50 text-3xl font-black",
+                  style: "text-white/50 text-xl text-center font-black",
                   text: "Hello, World!",
                 ),
               ),

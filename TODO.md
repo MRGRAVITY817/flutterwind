@@ -79,7 +79,7 @@
 - [x] Text Color
 - [x] Text Decoration
 - [x] Text Decoration Color
-- [ ] Text Decoration Style
+- [x] Text Decoration Style
 - [ ] Text Decoration Thickness
 - [ ] Text Underline Offset
 - [ ] Text Transform

@@ -11,6 +11,7 @@ import 'package:flutterwind/src/parse_style/typography/parse_font_style.dart';
 import 'package:flutterwind/src/parse_style/typography/parse_text_align.dart';
 import 'package:flutterwind/src/parse_style/typography/parse_text_decoration.dart';
 import 'package:flutterwind/src/parse_style/typography/parse_text_decoration_color.dart';
+import 'package:flutterwind/src/parse_style/typography/parse_text_decoration_style.dart';
 
 /// Parse style string to map.
 ///
@@ -56,7 +57,8 @@ Map<String, dynamic> parseStyle(String style, Size size) {
     ...parseFontStyle(classes),
     ...parseTextAlign(classes),
     ...parseTextDecoration(classes),
-    ...parseFontVariantNumeric(classes),
     ...parseTextDecorationColor(classes),
+    ...parseTextDecorationStyle(classes),
+    ...parseFontVariantNumeric(classes),
   };
 }

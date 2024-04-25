@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterwind/src/parse_style/utils/match_one_class.dart';
 
 /// Parses the font weight classes
 ///
@@ -28,14 +29,10 @@ import 'package:flutter/material.dart';
 /// }
 /// ```
 Map<String, FontWeight> parseFontWeight(List<String> classes) {
-  final matchedClasses =
-      classes.where((c) => fontWeightClassMap.keys.contains(c));
-
-  if (matchedClasses.isEmpty || matchedClasses.length > 1) {
-    return {};
-  }
-
-  final fontWeight = fontWeightClassMap[matchedClasses.first];
+  final fontWeight = matchOneClass(
+    classes: classes,
+    classMap: fontWeightClassMap,
+  );
 
   return fontWeight != null ? {"font-weight": fontWeight} : {};
 }

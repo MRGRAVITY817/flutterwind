@@ -1,11 +1,3 @@
-const List<String> _everyCorners = ["tl", "tr", "br", "bl"];
-const _noRadius = <String, double>{
-  "border-radius-tl": 0.0,
-  "border-radius-tr": 0.0,
-  "border-radius-br": 0.0,
-  "border-radius-bl": 0.0
-};
-
 /// Parse border radius classes.
 ///
 /// Example:
@@ -71,6 +63,15 @@ Map<String, double> parseOneBorderRadius(String className) {
     for (final corner in corners) "border-radius-$corner": size,
   };
 }
+
+const List<String> _everyCorners = ["tl", "tr", "br", "bl"];
+
+const _noRadius = <String, double>{
+  "border-radius-tl": 0.0,
+  "border-radius-tr": 0.0,
+  "border-radius-br": 0.0,
+  "border-radius-bl": 0.0
+};
 
 const Map<String, List<String>> _cornerMap = {
   "t": ["tl", "tr"],

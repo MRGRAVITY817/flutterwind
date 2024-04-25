@@ -1,17 +1,15 @@
 import 'dart:ui';
 
+import 'package:flutterwind/src/parse_style/utils/match_one_class.dart';
+
 /// Parse font style classes
 Map<String, FontStyle> parseFontStyle(List<String> classes) {
-  final matchedClasses =
-      classes.where((c) => fontStyleClassMap.keys.contains(c));
+  final fontStyle = matchOneClass(
+    classes: classes,
+    classMap: fontStyleClassMap,
+  );
 
-  if (matchedClasses.isEmpty || matchedClasses.length > 1) {
-    return {};
-  }
-
-  return {
-    "font-style": fontStyleClassMap[matchedClasses.first]!,
-  };
+  return fontStyle != null ? {"font-style": fontStyle} : {};
 }
 
 const Map<String, FontStyle> fontStyleClassMap = {

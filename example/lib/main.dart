@@ -27,7 +27,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,28 +40,32 @@ class MyHomePage extends StatelessWidget {
                 style: "w-64 h-64 bg-blue-300 rounded-l-3xl py-4",
                 child: Column(
                   children: [
-                    FwText(
+                    const FwText(
                       style: "text-white/50 text-xl text-center font-black",
                       text: "Hello, World!",
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     FwText(
-                      style:
-                          "text-indigo-500 text-2xl text-center font-light italic underline decoration-sky-400",
+                      style: styles([
+                        "text-indigo-500 text-2xl text-center",
+                        "font-light italic underline decoration-sky-400",
+                      ]),
                       text: "Hello, World!",
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     FwText(
-                      style:
-                          "text-green-100 text-3xl text-center font-medium italic slashed-zero overline decoration-red-500",
+                      style: styles([
+                        "text-green-500 text-3xl text-center",
+                        "font-bold line-through decoration-red-500",
+                      ]),
                       text: "000",
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            FwContainer(
+            const SizedBox(height: 20),
+            const FwContainer(
               style: "size-40 bg-blue-300 rounded-xl p-4",
               child: FwText(
                 style: "text-white text-4xl",

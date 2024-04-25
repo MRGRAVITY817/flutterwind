@@ -68,7 +68,7 @@
 - [ ] Font Smoothing
 - [x] Font Style
 - [x] Font Weight
-- [ ] Font Variant Numeric
+- [x] Font Variant Numeric
 - [ ] Letter Spacing
 - [ ] Line Clamp
 - [ ] Line Height

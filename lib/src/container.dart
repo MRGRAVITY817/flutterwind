@@ -51,7 +51,8 @@ class ContainerStyle {
 
   factory ContainerStyle.from(BuildContext context, String style) {
     final isDark = Theme.of(context).colorScheme.brightness == Brightness.dark;
-    final styleMap = parseStyle(style);
+    final size = MediaQuery.sizeOf(context);
+    final styleMap = parseStyle(style, size);
 
     return ContainerStyle(
       height: styleMap['h'],

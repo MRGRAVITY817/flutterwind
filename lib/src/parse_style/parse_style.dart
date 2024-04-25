@@ -1,8 +1,10 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutterwind/src/parse_style/parse_background_color.dart';
 import 'package:flutterwind/src/parse_style/parse_border_radius.dart';
 import 'package:flutterwind/src/parse_style/parse_border_width.dart';
 import 'package:flutterwind/src/parse_style/parse_color.dart';
 import 'package:flutterwind/src/parse_style/parse_height_width.dart';
+import 'package:flutterwind/src/parse_style/parse_size.dart';
 import 'package:flutterwind/src/parse_style/parse_spacing.dart';
 
 /// Parse style string to map.
@@ -22,23 +24,27 @@ import 'package:flutterwind/src/parse_style/parse_spacing.dart';
 ///   "margin": "4",
 ///   "background-color": "red-500",
 /// }
-Map<String, dynamic> parseStyle(String style) {
+Map<String, dynamic> parseStyle(String style, Size size) {
   final classes = style.split(" ");
 
   return {
-    ...parseHeightWidth(classes),
+    ...parseSize(classes),
+    ...parseHeightWidth(classes, size),
     ...parsePadding(classes),
     ...parseMargin(classes),
     ...parseBorderRadius(classes),
     ...parseBorderWidth(classes),
     ...parseBackgroundColor(classes),
-    ...parseColor(classes, [
-      "bg",
-      "dark:bg",
-      "border",
-      "dark:border",
-      "text",
-      "dark:text",
-    ]),
+    ...parseColor(
+      classes,
+      [
+        "bg",
+        "dark:bg",
+        "border",
+        "dark:border",
+        "text",
+        "dark:text",
+      ],
+    ),
   };
 }

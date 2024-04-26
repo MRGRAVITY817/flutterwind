@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutterwind/src/parse_style/flexbox_grid/parse_flex.dart';
 import 'package:flutterwind/src/parse_style/parse_color.dart';
 import 'package:flutterwind/src/parse_style/parse_sizing.dart';
 import 'package:flutterwind/src/parse_style/parse_spacing.dart';
@@ -56,6 +57,7 @@ Map<String, dynamic> parseStyle(String style, Size size) {
       ],
     ),
     // Flexbox & Grid
+    ...parseFlex(classes),
     // Typography
     ...parseFontSize(classes),
     ...parseFontWeight(classes),

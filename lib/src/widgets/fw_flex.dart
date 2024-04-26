@@ -15,21 +15,20 @@ class FwFlex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final FwFlexStyle fwStyle = FwFlexStyle.from(style ?? "", context);
+    final reversedChildren =
+        fwStyle.reverse ? children.reversed.toList() : children;
 
     return FwContainer(
       style: style,
-      child: Wrap(
+      child: Flex(
         direction: fwStyle.direction ?? Axis.horizontal,
-        alignment: fwStyle.alignment ?? WrapAlignment.start,
-        spacing: fwStyle.spacing ?? 0.0,
-        runAlignment: fwStyle.runAlignment ?? WrapAlignment.start,
-        runSpacing: fwStyle.runSpacing ?? 0.0,
+        mainAxisAlignment: fwStyle.mainAxisAlignment ?? MainAxisAlignment.start,
         crossAxisAlignment:
-            fwStyle.crossAxisAlignment ?? WrapCrossAlignment.start,
+            fwStyle.crossAxisAlignment ?? CrossAxisAlignment.start,
         textDirection: fwStyle.textDirection ?? TextDirection.ltr,
         verticalDirection: fwStyle.verticalDirection ?? VerticalDirection.down,
         clipBehavior: fwStyle.clipBehavior ?? Clip.none,
-        children: fwStyle.reverse ? children.reversed.toList() : children,
+        children: reversedChildren,
       ),
     );
   }
@@ -37,11 +36,11 @@ class FwFlex extends StatelessWidget {
 
 class FwFlexStyle {
   final Axis? direction;
-  final WrapAlignment? alignment;
+  final MainAxisAlignment? mainAxisAlignment;
+  final CrossAxisAlignment? crossAxisAlignment;
   final double? spacing;
   final WrapAlignment? runAlignment;
   final double? runSpacing;
-  final WrapCrossAlignment? crossAxisAlignment;
   final TextDirection? textDirection;
   final VerticalDirection? verticalDirection;
   final Clip? clipBehavior;
@@ -49,11 +48,11 @@ class FwFlexStyle {
 
   const FwFlexStyle({
     this.direction,
-    this.alignment,
+    this.mainAxisAlignment,
+    this.crossAxisAlignment,
     this.spacing,
     this.runAlignment,
     this.runSpacing,
-    this.crossAxisAlignment,
     this.textDirection,
     this.verticalDirection,
     this.clipBehavior,
@@ -65,7 +64,7 @@ class FwFlexStyle {
 
     return FwFlexStyle(
       direction: styleMap["flex-direction"],
-      alignment: styleMap["justify-content"],
+      mainAxisAlignment: styleMap["justify-content"],
       crossAxisAlignment: styleMap["align-items"],
       spacing: styleMap["main-gap"],
       runSpacing: styleMap["cross-gap"],
@@ -73,7 +72,7 @@ class FwFlexStyle {
       textDirection: styleMap["text-direction"],
       verticalDirection: styleMap["vertical-direction"],
       clipBehavior: styleMap["clip-behavior"],
-      reverse: styleMap["flex-reverse"] ?? false,
+      reverse: styleMap["reverse"] ?? false,
     );
   }
 }

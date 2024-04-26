@@ -24,7 +24,7 @@
 
 ## Flexbox & Grid
 - [ ] Flex Basis (might not be needed)
-- [ ] Flex Direction
+- [x] Flex Direction
 - [ ] Flex Wrap
 - [x] Flex
 - [ ] Flex Grow

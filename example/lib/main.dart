@@ -28,34 +28,68 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: FwContainer(
-          style: "w-full",
-          child: Row(
-            children: [
-              FwFlexible(
-                style: "flex-2 h-12 bg-blue-500",
-                child: FwText(
-                  style: "text-lg text-white font-bold",
-                  text: "Hello",
-                ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            FwContainer(
+              style: "w-full",
+              child: Row(
+                children: [
+                  FwFlexible(
+                    style: "flex-2 h-12 bg-blue-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                  FwFlexible(
+                    style: "flex-1 h-12 bg-green-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                  FwFlexible(
+                    style: "flex-2 h-12 bg-red-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                ],
               ),
-              FwFlexible(
-                style: "flex-1 h-12 bg-green-500",
-                child: FwText(
-                  style: "text-lg text-white font-bold",
-                  text: "Hello",
-                ),
+            ),
+            SizedBox(height: 20),
+            FwContainer(
+              style: "w-full h-32",
+              child: FwFlex(
+                style: "flex-col",
+                children: [
+                  FwFlexible(
+                    style: "flex-2 w-full bg-blue-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                  FwFlexible(
+                    style: "flex-1 w-12 bg-green-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                  FwFlexible(
+                    style: "flex-2 w-12 bg-red-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                ],
               ),
-              FwFlexible(
-                style: "flex-2 h-12 bg-red-500",
-                child: FwText(
-                  style: "text-lg text-white font-bold",
-                  text: "Hello",
-                ),
-              ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

@@ -38,8 +38,6 @@ class FwFlexibleStyle {
   factory FwFlexibleStyle.from(String style, BuildContext context) {
     final styleMap = parseStyle(style, MediaQuery.sizeOf(context));
 
-    print("styleMap: $styleMap");
-
     return FwFlexibleStyle(
       flex: styleMap["flex"],
     );

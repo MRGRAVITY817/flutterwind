@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:flutterwind/src/parse_style/parse_style.dart';
 
 class FwGrid extends StatelessWidget {
@@ -15,15 +16,14 @@ class FwGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final fwStyle = FwGridStyle.from(style ?? "", context);
 
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: fwStyle.columns ?? 1,
-        crossAxisSpacing: fwStyle.spacing ?? 0,
-        mainAxisSpacing: fwStyle.runSpacing ?? 0,
-      ),
-      itemBuilder: (BuildContext context, int index) {
-        return children[index];
-      },
+    return LayoutGrid(
+      columnSizes: [
+        for (int i = 0; i < fwStyle.columns!; i++) auto,
+      ],
+      rowSizes: [
+        for (int i = 0; i < children.length; i++) auto,
+      ],
+      children: children,
     );
   }
 }

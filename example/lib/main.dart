@@ -117,6 +117,46 @@ class MyHomePage extends StatelessWidget {
                     text: "Hello",
                   ),
                 ),
+                FwContainer(
+                  style: "h-12 bg-teal-500",
+                  child: FwText(
+                    style: "text-lg text-white font-bold",
+                    text: "Hello",
+                  ),
+                ),
+                FwContainer(
+                  style: "h-12 bg-red-500",
+                  child: FwText(
+                    style: "text-lg text-white font-bold",
+                    text: "Hello",
+                  ),
+                ),
+                FwGrid(
+                  style: "grid-cols-subgrid",
+                  children: [
+                    FwContainer(
+                      style: "h-12 bg-teal-500",
+                      child: FwText(
+                        style: "text-lg text-white font-bold",
+                        text: "Hello",
+                      ),
+                    ),
+                    FwContainer(
+                      style: "h-12 bg-red-500",
+                      child: FwText(
+                        style: "text-lg text-white font-bold",
+                        text: "Hello",
+                      ),
+                    ),
+                    FwContainer(
+                      style: "h-12 bg-red-500",
+                      child: FwText(
+                        style: "text-lg text-white font-bold",
+                        text: "Hello",
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ],

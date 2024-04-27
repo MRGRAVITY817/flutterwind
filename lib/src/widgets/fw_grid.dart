@@ -16,9 +16,16 @@ class FwGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final fwStyle = FwGridStyle.from(style ?? "", context);
 
+    // Get parent grid's column count
+    final LayoutGrid? parentGrid =
+        context.findAncestorWidgetOfExactType<LayoutGrid>();
+
+    // If parent grid is found, use its column count
+    final int columns = parentGrid?.columnSizes.length ?? fwStyle.columns ?? 1;
+
     return LayoutGrid(
       columnSizes: [
-        for (int i = 0; i < fwStyle.columns!; i++) auto,
+        for (int i = 0; i < columns; i++) auto,
       ],
       rowSizes: [
         for (int i = 0; i < children.length; i++) auto,
@@ -33,12 +40,14 @@ class FwGridStyle {
   final double? spacing;
   final double? runSpacing;
   final CrossAxisAlignment? alignSelf;
+  final bool isSubgrid;
 
   const FwGridStyle({
     this.columns,
     this.spacing,
     this.runSpacing,
     this.alignSelf,
+    this.isSubgrid = false,
   });
 
   factory FwGridStyle.from(String style, BuildContext context) {
@@ -49,6 +58,7 @@ class FwGridStyle {
       spacing: styleMap["gap"],
       runSpacing: styleMap["row-gap"],
       alignSelf: styleMap["align-self"],
+      isSubgrid: styleMap["subgrid"] ?? false,
     );
   }
 }

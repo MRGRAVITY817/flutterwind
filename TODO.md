@@ -30,7 +30,7 @@
 - [ ] Flex Grow
 - [ ] Flex Shrink
 - [ ] Order
-- [ ] Grid Template Columns
+- [x] Grid Template Columns
 - [ ] Grid Column Start / End
 - [ ] Grid Template Rows
 - [ ] Grid Row Start / End

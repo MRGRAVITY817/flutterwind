@@ -27,11 +27,11 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            FwContainer(
+            const FwContainer(
               style: "w-full",
               child: Row(
                 children: [
@@ -59,8 +59,8 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            FwFlex(
+            const SizedBox(height: 20),
+            const FwFlex(
               style: "flex-row h-96 justify-end items-center",
               children: [
                 FwContainer(
@@ -92,6 +92,47 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            SizedBox(
+              height: 200,
+              child: GridView(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                ),
+                children: const [
+                  FwContainer(
+                    style: "w-16 h-12 bg-blue-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                  FwContainer(
+                    style: "w-16 h-12 bg-green-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                  FwContainer(
+                    style: "w-16 h-12 bg-red-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                  FwContainer(
+                    style: "w-16 h-12 bg-yellow-500",
+                    child: FwText(
+                      style: "text-lg text-white font-bold",
+                      text: "Hello",
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

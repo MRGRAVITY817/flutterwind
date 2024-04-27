@@ -3,6 +3,7 @@ import 'package:flutterwind/src/parse_style/flexbox_grid/parse_align_items.dart'
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_align_self.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_flex.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_flex_direction.dart';
+import 'package:flutterwind/src/parse_style/flexbox_grid/parse_grid_template_columns.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_justify_content.dart';
 import 'package:flutterwind/src/parse_style/parse_color.dart';
 import 'package:flutterwind/src/parse_style/parse_sizing.dart';
@@ -66,6 +67,7 @@ Map<String, dynamic> parseStyle(String style, Size size) {
     ...parseJustifyContent(classes),
     ...parseAlignItems(classes),
     ...parseAlignSelf(classes),
+    ...parseGridTemplateColumns(classes),
     // Typography
     ...parseFontSize(classes),
     ...parseFontWeight(classes),

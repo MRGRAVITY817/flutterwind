@@ -43,7 +43,7 @@
 - [ ] Justify Self
 - [ ] Align Content
 - [x] Align Items
-- [ ] Align Self
+- [x] Align Self
 - [ ] Place Content
 - [ ] Place Items
 - [ ] Place Self

@@ -30,9 +30,11 @@ class FwFlexible extends StatelessWidget {
 
 class FwFlexibleStyle {
   final int? flex;
+  final CrossAxisAlignment? alignSelf;
 
   const FwFlexibleStyle({
     this.flex,
+    this.alignSelf,
   });
 
   factory FwFlexibleStyle.from(String style, BuildContext context) {
@@ -40,6 +42,7 @@ class FwFlexibleStyle {
 
     return FwFlexibleStyle(
       flex: styleMap["flex"],
+      alignSelf: styleMap["align-self"],
     );
   }
 }

@@ -60,34 +60,38 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            FwContainer(
-              style: "w-full h-32 bg-gray-200",
-              child: FwFlex(
-                style: "flex-row justify-end items-stretch",
-                children: [
-                  FwContainer(
-                    style: "w-16 h-12 bg-blue-500",
-                    child: FwText(
-                      style: "text-lg text-white font-bold",
-                      text: "Hello",
-                    ),
+            FwFlex(
+              style: "flex-row h-96 justify-end items-center",
+              children: [
+                FwContainer(
+                  style: "w-16 h-12 bg-blue-500",
+                  child: FwText(
+                    style: "text-lg text-white font-bold",
+                    text: "Hello",
                   ),
-                  FwContainer(
-                    style: "w-16 h-12 bg-green-500",
-                    child: FwText(
-                      style: "text-lg text-white font-bold",
-                      text: "Hello",
-                    ),
+                ),
+                FwContainer(
+                  style: "w-16 h-12 bg-green-500",
+                  child: FwText(
+                    style: "text-lg text-white font-bold",
+                    text: "Hello",
                   ),
-                  FwContainer(
-                    style: "w-16 h-12 bg-red-500",
-                    child: FwText(
-                      style: "text-lg text-white font-bold",
-                      text: "Hello",
-                    ),
+                ),
+                FwContainer(
+                  style: "w-16 h-12 bg-red-500",
+                  child: FwText(
+                    style: "text-lg text-white font-bold",
+                    text: "Hello",
                   ),
-                ],
-              ),
+                ),
+                FwContainer(
+                  style: "w-16 h-12 bg-yellow-500 self-stretch",
+                  child: FwText(
+                    style: "text-lg text-white font-bold",
+                    text: "Hello",
+                  ),
+                ),
+              ],
             ),
           ],
         ),

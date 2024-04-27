@@ -21,6 +21,27 @@ class FwContainer extends StatelessWidget {
 
     final containerStyle = FwContainerStyle.from(context, style!);
 
+    if (containerStyle.alignSelf != null) {
+      final Flex? parentFlex = context.findAncestorWidgetOfExactType<Flex>();
+      if (parentFlex != null) {
+        return Flex(
+          direction: parentFlex.direction,
+          textBaseline: TextBaseline.alphabetic,
+          crossAxisAlignment: containerStyle.alignSelf!,
+          children: [
+            Container(
+              height: containerStyle.height,
+              width: containerStyle.width,
+              padding: containerStyle.padding,
+              margin: containerStyle.margin,
+              decoration: containerStyle.decoration,
+              child: child,
+            )
+          ],
+        );
+      }
+    }
+
     return Container(
       height: containerStyle.height,
       width: containerStyle.width,
@@ -38,6 +59,7 @@ class FwContainerStyle {
   final BoxDecoration? decoration;
   final double? height;
   final double? width;
+  final CrossAxisAlignment? alignSelf;
 
   FwContainerStyle({
     this.padding,
@@ -45,6 +67,7 @@ class FwContainerStyle {
     this.decoration,
     this.height,
     this.width,
+    this.alignSelf,
   });
 
   factory FwContainerStyle.from(BuildContext context, String style) {
@@ -100,6 +123,7 @@ class FwContainerStyle {
           bottomLeft: Radius.circular(styleMap['border-radius-bl']),
         ),
       ),
+      alignSelf: styleMap['align-self'],
     );
   }
 }

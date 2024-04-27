@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_align_items.dart';
+import 'package:flutterwind/src/parse_style/flexbox_grid/parse_align_self.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_flex.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_flex_direction.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_justify_content.dart';
@@ -64,6 +65,7 @@ Map<String, dynamic> parseStyle(String style, Size size) {
     ...parseFlexDirection(classes),
     ...parseJustifyContent(classes),
     ...parseAlignItems(classes),
+    ...parseAlignSelf(classes),
     // Typography
     ...parseFontSize(classes),
     ...parseFontWeight(classes),

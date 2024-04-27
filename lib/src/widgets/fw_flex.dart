@@ -28,6 +28,7 @@ class FwFlex extends StatelessWidget {
         textDirection: fwStyle.textDirection ?? TextDirection.ltr,
         verticalDirection: fwStyle.verticalDirection ?? VerticalDirection.down,
         clipBehavior: fwStyle.clipBehavior ?? Clip.none,
+        textBaseline: TextBaseline.alphabetic,
         children: reversedChildren,
       ),
     );

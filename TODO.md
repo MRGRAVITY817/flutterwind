@@ -42,7 +42,7 @@
 - [ ] Justify Items
 - [ ] Justify Self
 - [ ] Align Content
-- [ ] Align Items
+- [x] Align Items
 - [ ] Align Self
 - [ ] Place Content
 - [ ] Place Items

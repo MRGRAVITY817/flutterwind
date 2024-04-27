@@ -61,26 +61,26 @@ class MyHomePage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             FwContainer(
-              style: "w-full h-32",
+              style: "w-full",
               child: FwFlex(
-                style: "flex-col",
+                style: "flex-row justify-end",
                 children: [
-                  FwFlexible(
-                    style: "flex-2 w-full bg-blue-500",
+                  FwContainer(
+                    style: "w-16 h-12 bg-blue-500",
                     child: FwText(
                       style: "text-lg text-white font-bold",
                       text: "Hello",
                     ),
                   ),
-                  FwFlexible(
-                    style: "flex-1 w-12 bg-green-500",
+                  FwContainer(
+                    style: "w-16 h-12 bg-green-500",
                     child: FwText(
                       style: "text-lg text-white font-bold",
                       text: "Hello",
                     ),
                   ),
-                  FwFlexible(
-                    style: "flex-2 w-12 bg-red-500",
+                  FwContainer(
+                    style: "w-16 h-12 bg-red-500",
                     child: FwText(
                       style: "text-lg text-white font-bold",
                       text: "Hello",
@@ -88,7 +88,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

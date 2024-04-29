@@ -15,6 +15,16 @@ Map<String, double> parseSpacing({
   final bottom = _extractValue(classes, "${prefixMap["b"]}-");
   final left = _extractValue(classes, "${prefixMap["l"]}-");
 
+  if (top == null &&
+      right == null &&
+      bottom == null &&
+      left == null &&
+      xSides == null &&
+      ySides == null &&
+      everySides == null) {
+    return {};
+  }
+
   return {
     prefixMap["t"]: top ?? ySides ?? everySides ?? 0,
     prefixMap["b"]: bottom ?? ySides ?? everySides ?? 0,

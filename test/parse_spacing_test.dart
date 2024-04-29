@@ -6,6 +6,14 @@ void main() {
   final sut = parsePadding;
 
   group('parse padding', () {
+    test('no padding', () {
+      final input = <String>[];
+
+      final output = sut(input);
+
+      expect(output, {});
+    });
+
     test('padding all sides', () {
       final input = ["p-4"];
 

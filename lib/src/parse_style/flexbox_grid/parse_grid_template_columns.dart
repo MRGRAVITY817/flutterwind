@@ -19,7 +19,7 @@ import 'package:flutterwind/src/parse_style/utils/match_one_class.dart';
 ///   "grid-cols": 1,
 /// }
 /// ```
-Map<String, int> parseGridTemplateColumns(List<String> classes) {
+Map<String, int> parseGridColumns(List<String> classes) {
   return matchOneClassMap(
     classes: classes,
     classMap: gridTemplateColumnsMap,

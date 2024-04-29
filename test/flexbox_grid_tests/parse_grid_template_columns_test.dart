@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_grid_template_columns.dart';
 
 void main() {
-  final sut = parseGridTemplateColumns;
+  final sut = parseGridColumns;
 
   group("parse grid template columns", () {
     test("parse grid template columns", () {

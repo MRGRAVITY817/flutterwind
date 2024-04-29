@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:flutterwind/flutterwind.dart';
 
 void main() {
@@ -27,11 +28,11 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            FwContainer(
+            const FwContainer(
               style: "w-full",
               child: Row(
                 children: [
@@ -59,8 +60,8 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            FwFlex(
+            const SizedBox(height: 20),
+            const FwFlex(
               style: "flex-row h-96 justify-end items-center",
               children: [
                 FwContainer(
@@ -93,7 +94,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            FwGrid(
+            const FwGrid(
               style: "grid-cols-4 gap-4",
               children: [
                 FwContainer(
@@ -125,38 +126,20 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
                 FwContainer(
-                  style: "h-12 bg-red-500",
-                  child: FwText(
-                    style: "text-lg text-white font-bold",
-                    text: "Hello",
-                  ),
+                  style: "bg-green-500 col-start-1 col-span-2 h-12",
                 ),
-                FwGrid(
-                  style: "grid-cols-subgrid",
-                  children: [
-                    FwContainer(
-                      style: "h-12 bg-teal-500",
-                      child: FwText(
-                        style: "text-lg text-white font-bold",
-                        text: "Hello",
-                      ),
-                    ),
-                    FwContainer(
-                      style: "h-12 bg-red-500",
-                      child: FwText(
-                        style: "text-lg text-white font-bold",
-                        text: "Hello",
-                      ),
-                    ),
-                    FwContainer(
-                      style: "h-12 bg-red-500",
-                      child: FwText(
-                        style: "text-lg text-white font-bold",
-                        text: "Hello",
-                      ),
-                    ),
-                  ],
-                )
+              ],
+            ),
+            LayoutGrid(
+              columnSizes: const [auto, auto, auto],
+              rowSizes: const [auto, auto],
+              children: [
+                const FwContainer(
+                  style: "bg-yellow-500 h-12",
+                ).withGridPlacement(columnStart: 0, columnSpan: 2),
+                const FwContainer(
+                  style: "bg-blue-500 h-12",
+                ).withGridPlacement(columnStart: 1, rowStart: 1),
               ],
             ),
           ],

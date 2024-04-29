@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
+import 'package:flutterwind/flutterwind.dart';
 import 'package:flutterwind/src/parse_style/parse_style.dart';
 
 class FwGrid extends StatelessWidget {
@@ -21,22 +22,34 @@ class FwGrid extends StatelessWidget {
         context.findAncestorWidgetOfExactType<LayoutGrid>();
 
     // If parent grid is found, use its column count
-    final int columns = parentGrid?.columnSizes.length ?? fwStyle.columns ?? 1;
+    final int columns = fwStyle.isSubgrid
+        ? (parentGrid?.columnSizes.length ?? 1)
+        : fwStyle.columns ?? 1;
 
-    return LayoutGrid(
-      columnSizes: [
-        for (int i = 0; i < columns; i++) auto,
-      ],
-      rowSizes: [
-        for (int i = 0; i < children.length; i++) auto,
-      ],
-      children: children,
+    int rowCount(List<Widget> children, int columns) {
+      return (children.length / columns).ceil();
+    }
+
+    return FwContainer(
+      style: style,
+      child: LayoutGrid(
+        columnSizes: List.generate(
+          columns,
+          (index) => auto,
+        ),
+        rowSizes: List.generate(
+          rowCount(children, columns),
+          (index) => auto,
+        ),
+        children: children,
+      ),
     );
   }
 }
 
 class FwGridStyle {
   final int? columns;
+  final int? rows;
   final double? spacing;
   final double? runSpacing;
   final CrossAxisAlignment? alignSelf;
@@ -44,6 +57,7 @@ class FwGridStyle {
 
   const FwGridStyle({
     this.columns,
+    this.rows,
     this.spacing,
     this.runSpacing,
     this.alignSelf,
@@ -55,6 +69,7 @@ class FwGridStyle {
 
     return FwGridStyle(
       columns: styleMap["grid-cols"],
+      rows: styleMap["grid-rows"],
       spacing: styleMap["gap"],
       runSpacing: styleMap["row-gap"],
       alignSelf: styleMap["align-self"],

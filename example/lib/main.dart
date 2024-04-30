@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:flutterwind/flutterwind.dart';
 
 void main() {
@@ -96,22 +95,14 @@ class MyHomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             FwGrid(
-              style: "grid-cols-4 grid-rows-2 gap-4 justify-items-end",
+              style:
+                  "grid-cols-4 grid-rows-4 gap-4 justify-items-start grid-flow-col",
               children: [
-                SizedBox(
-                  width: double.infinity,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        color: Colors.blue,
-                        height: 100,
-                        child: FwText(
-                          style: "text-lg text-white font-bold",
-                          text: "Hello",
-                        ),
-                      ),
-                    ],
+                FwContainer(
+                  style: "h-12 bg-blue-500",
+                  child: FwText(
+                    style: "text-lg text-white font-bold",
+                    text: "Hello",
                   ),
                 ),
                 FwContainer(

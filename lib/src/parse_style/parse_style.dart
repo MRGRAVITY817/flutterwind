@@ -3,6 +3,7 @@ import 'package:flutterwind/src/parse_style/flexbox_grid/parse_align_items.dart'
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_align_self.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_flex.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_flex_direction.dart';
+import 'package:flutterwind/src/parse_style/flexbox_grid/parse_grid_auto_flow.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_grid_cols_subgrid.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_grid_column_start_end.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_grid_row_start_end.dart';
@@ -78,6 +79,7 @@ Map<String, dynamic> parseStyle(String style, Size size) {
     ...parseGridRowStartEnd(classes),
     ...parseJustifyContent(classes),
     ...parseJustifyItems(classes),
+    ...parseGridAutoFlow(classes),
     // Typography
     ...parseFontSize(classes),
     ...parseFontWeight(classes),

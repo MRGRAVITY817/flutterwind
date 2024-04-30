@@ -59,12 +59,9 @@ class FwContainer extends StatelessWidget {
     // in a Row with mainAxisAlignment equal to the justify-items value
     final gridParentStyle = gridParent.style;
 
-    print("gridParentStyle: $gridParentStyle");
-
     if (gridParentStyle != null) {
       final justifyItems = parseJustifyItems(gridParentStyle.split(" "));
       if (justifyItems.isNotEmpty) {
-        print("justifyItems: $justifyItems");
         return Row(
           mainAxisAlignment:
               justifyItems["justify-items"] ?? MainAxisAlignment.start,

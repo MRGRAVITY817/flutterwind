@@ -34,6 +34,7 @@ class FwGrid extends StatelessWidget {
       style: style,
       child: LayoutGrid(
         gridFit: GridFit.expand,
+        autoPlacement: fwStyle.autoPlacement ?? AutoPlacement.rowSparse,
         textDirection: TextDirection.ltr,
         columnSizes: List.generate(
           columns,
@@ -56,6 +57,7 @@ class FwGridStyle {
   final double? runSpacing;
   final CrossAxisAlignment? alignSelf;
   final bool isSubgrid;
+  final AutoPlacement? autoPlacement;
 
   const FwGridStyle({
     this.columns,
@@ -64,6 +66,7 @@ class FwGridStyle {
     this.runSpacing,
     this.alignSelf,
     this.isSubgrid = false,
+    this.autoPlacement,
   });
 
   factory FwGridStyle.from(String style, BuildContext context) {
@@ -76,6 +79,7 @@ class FwGridStyle {
       runSpacing: styleMap["row-gap"],
       alignSelf: styleMap["align-self"],
       isSubgrid: styleMap["subgrid"] ?? false,
+      autoPlacement: styleMap["grid-auto-flow"],
     );
   }
 }

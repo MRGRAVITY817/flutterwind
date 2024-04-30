@@ -34,7 +34,7 @@
 - [x] Grid Column Start / End
 - [x] Grid Template Rows
 - [x] Grid Row Start / End
-- [ ] Grid Auto Flow
+- [x] Grid Auto Flow
 - [ ] Grid Auto Columns
 - [ ] Grid Auto Rows
 - [ ] Gap

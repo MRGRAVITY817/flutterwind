@@ -94,17 +94,39 @@ class MyHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const FwGrid(
-              style: "grid-cols-4 grid-rows-2 gap-4",
+            const SizedBox(height: 20),
+            FwGrid(
+              style: "grid-cols-4 grid-rows-2 gap-4 justify-items-end",
               children: [
-                FwContainer(
-                  style: "h-12 bg-blue-500 col-start-1 col-span-2",
+                SizedBox(
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        color: Colors.blue,
+                        height: 100,
+                        child: FwText(
+                          style: "text-lg text-white font-bold",
+                          text: "Hello",
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 FwContainer(
                   style: "h-12 bg-green-500",
+                  child: FwText(
+                    style: "text-lg text-white font-bold",
+                    text: "Hello",
+                  ),
                 ),
                 FwContainer(
                   style: "h-12 bg-red-500",
+                  child: FwText(
+                    style: "text-lg text-white font-bold",
+                    text: "Hello",
+                  ),
                 ),
                 FwContainer(
                   style: "h-12 bg-teal-500",

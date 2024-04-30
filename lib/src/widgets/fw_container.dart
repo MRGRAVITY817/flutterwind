@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
+import 'package:flutterwind/flutterwind.dart';
+import 'package:flutterwind/src/parse_style/flexbox_grid/parse_justify_items.dart';
 import 'package:flutterwind/src/parse_style/parse_style.dart';
+import 'package:flutterwind/src/widgets/fw_grid.dart';
+import 'package:flutterwind/src/widgets/grid_child_container.dart';
 
 class FwContainer extends StatelessWidget {
   final String? style;
@@ -38,29 +42,56 @@ class FwContainer extends StatelessWidget {
           direction: parentFlex.direction,
           textBaseline: TextBaseline.alphabetic,
           crossAxisAlignment: containerStyle.alignSelf!,
-          children: [
-            styledChild,
-          ],
+          children: [styledChild],
         );
       }
     }
 
-    if (containerStyle.columnStart == null &&
-        containerStyle.columnSpan == null &&
-        containerStyle.rowStart == null &&
-        containerStyle.rowSpan == null) {
+    final gridParent = context.findAncestorWidgetOfExactType<FwGrid>();
+
+    if (gridParent == null || child is LayoutGrid) {
       return styledChild;
     }
 
-    return styledChild.withGridPlacement(
-      columnStart: containerStyle.columnStart != null
-          ? containerStyle.columnStart! - 1
-          : null,
-      columnSpan: containerStyle.columnSpan ?? 1,
-      rowStart:
-          containerStyle.rowStart != null ? containerStyle.rowStart! - 1 : null,
-      rowSpan: containerStyle.rowSpan ?? 1,
-    );
+    final gridChild = gridChildContainer(containerStyle, styledChild);
+
+    // If grid parent has a justify-items style, we should wrap the child
+    // in a Row with mainAxisAlignment equal to the justify-items value
+    final gridParentStyle = gridParent.style;
+
+    print("gridParentStyle: $gridParentStyle");
+
+    if (gridParentStyle != null) {
+      final justifyItems = parseJustifyItems(gridParentStyle.split(" "));
+      if (justifyItems.isNotEmpty) {
+        print("justifyItems: $justifyItems");
+        return Row(
+          mainAxisAlignment:
+              justifyItems["justify-items"] ?? MainAxisAlignment.start,
+          children: [
+            Container(
+              height: containerStyle.height,
+              width: containerStyle.width,
+              padding: containerStyle.padding,
+              margin: containerStyle.margin,
+              decoration: containerStyle.decoration,
+              child: child,
+            ),
+          ],
+        ).withGridPlacement(
+          columnStart: containerStyle.columnStart != null
+              ? containerStyle.columnStart! - 1
+              : null,
+          columnSpan: containerStyle.columnSpan ?? 1,
+          rowStart: containerStyle.rowStart != null
+              ? containerStyle.rowStart! - 1
+              : null,
+          rowSpan: containerStyle.rowSpan ?? 1,
+        );
+      }
+    }
+
+    return gridChild;
   }
 }
 
@@ -75,7 +106,6 @@ class FwContainerStyle {
   final int? columnSpan;
   final int? rowStart;
   final int? rowSpan;
-  final String? justifyItems;
 
   FwContainerStyle({
     this.padding,
@@ -88,7 +118,6 @@ class FwContainerStyle {
     this.columnSpan,
     this.rowStart,
     this.rowSpan,
-    this.justifyItems,
   });
 
   factory FwContainerStyle.from(BuildContext context, String style) {
@@ -161,7 +190,6 @@ class FwContainerStyle {
       columnSpan: styleMap['grid-column-span'],
       rowStart: styleMap['grid-row-start'],
       rowSpan: styleMap['grid-row-span'],
-      justifyItems: styleMap['justify-items'],
     );
   }
 }

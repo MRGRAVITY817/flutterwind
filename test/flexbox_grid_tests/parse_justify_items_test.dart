@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_justify_items.dart';
 
@@ -11,7 +12,7 @@ void main() {
       final output = sut(input);
 
       expect(output, {
-        "justify-items": "center",
+        "justify-items": MainAxisAlignment.center,
       });
     });
 
@@ -28,7 +29,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output, {"justify-items": "center"});
+      expect(output, {"justify-items": MainAxisAlignment.center});
     });
 
     test("justify items with empty input", () {

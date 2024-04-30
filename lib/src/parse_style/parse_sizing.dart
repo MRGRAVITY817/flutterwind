@@ -74,6 +74,9 @@ double? parseDimension({
   required bool isHeight,
   required Size size,
 }) {
+  if (className.isEmpty) {
+    return null;
+  }
   final heightFromSize = heightWidthSizeMap[className];
 
   if (heightFromSize != null) {
@@ -125,10 +128,10 @@ const Map<String, double> heightWidthSizeMap = {
   "72": 288.0,
   "80": 320.0,
   "96": 384.0,
+  "auto": double.infinity,
 };
 
 const Map<String, double> heightWidthFractionalSizeMap = {
-// "auto": double.infinity,
   "1/2": 0.5,
   "1/3": 0.333333,
   "2/3": 0.666667,

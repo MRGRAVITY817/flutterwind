@@ -56,7 +56,6 @@ class FwGridStyle {
   final double? runSpacing;
   final CrossAxisAlignment? alignSelf;
   final bool isSubgrid;
-  final String? justifyItems;
 
   const FwGridStyle({
     this.columns,
@@ -65,7 +64,6 @@ class FwGridStyle {
     this.runSpacing,
     this.alignSelf,
     this.isSubgrid = false,
-    this.justifyItems,
   });
 
   factory FwGridStyle.from(String style, BuildContext context) {
@@ -78,7 +76,6 @@ class FwGridStyle {
       runSpacing: styleMap["row-gap"],
       alignSelf: styleMap["align-self"],
       isSubgrid: styleMap["subgrid"] ?? false,
-      justifyItems: styleMap["justify-items"],
     );
   }
 }

@@ -13,9 +13,10 @@ import 'package:flutterwind/src/parse_style/flexbox_grid/parse_justify_content.d
 import 'package:flutterwind/src/parse_style/flexbox_grid/parse_justify_items.dart';
 import 'package:flutterwind/src/parse_style/parse_color.dart';
 import 'package:flutterwind/src/parse_style/parse_sizing.dart';
-import 'package:flutterwind/src/parse_style/parse_spacing.dart';
 import 'package:flutterwind/src/parse_style/borders/parse_border_radius.dart';
 import 'package:flutterwind/src/parse_style/borders/parse_border_width.dart';
+import 'package:flutterwind/src/parse_style/spacing/parse_margin.dart';
+import 'package:flutterwind/src/parse_style/spacing/parse_padding.dart';
 import 'package:flutterwind/src/parse_style/typography/parse_font_size.dart';
 import 'package:flutterwind/src/parse_style/typography/parse_font_variant_numeric.dart';
 import 'package:flutterwind/src/parse_style/typography/parse_font_weight.dart';

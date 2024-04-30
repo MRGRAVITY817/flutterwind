@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterwind/src/parse_style/parse_spacing.dart';
+import 'package:flutterwind/src/parse_style/spacing/parse_margin.dart';
+import 'package:flutterwind/src/parse_style/spacing/parse_padding.dart';
 
 void main() {
   // system under test

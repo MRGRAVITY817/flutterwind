@@ -30,6 +30,7 @@ Map<String, double?> parseHeightWidth(List<String> classes, Size size) {
     isHeight: false,
     size: size,
   );
+
   return {
     ...h != null ? {"h": h} : {},
     ...w != null ? {"w": w} : {},

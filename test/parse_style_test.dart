@@ -6,7 +6,7 @@ void main() {
   final sut = parseStyle;
   final size = Size(300, 400);
 
-  group("parse size/width/height", () {
+  group("parse styles", () {
     test("parse size/width/height", () {
       final input = "size-12 w-24 h-36";
 

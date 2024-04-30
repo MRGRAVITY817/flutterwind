@@ -12,8 +12,7 @@ void main() {
 
       final output = sut(input, size);
 
-      expect(output['h'], 144.0);
-      expect(output['w'], 96.0);
+      expect(output, {'h': 144.0, 'w': 96.0});
     });
   });
 }

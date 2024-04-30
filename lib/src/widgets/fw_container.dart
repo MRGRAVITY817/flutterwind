@@ -160,26 +160,26 @@ class FwContainerStyle {
         border: Border(
           top: BorderSide(
             color: borderColor,
-            width: styleMap['border-top-width'],
+            width: styleMap['border-top-width'] ?? 0.0,
           ),
           bottom: BorderSide(
             color: borderColor,
-            width: styleMap['border-bottom-width'],
+            width: styleMap['border-bottom-width'] ?? 0.0,
           ),
           left: BorderSide(
             color: borderColor,
-            width: styleMap['border-left-width'],
+            width: styleMap['border-left-width'] ?? 0.0,
           ),
           right: BorderSide(
             color: borderColor,
-            width: styleMap['border-right-width'],
+            width: styleMap['border-right-width'] ?? 0.0,
           ),
         ),
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(styleMap['rounded-tl']),
-          topRight: Radius.circular(styleMap['rounded-tr']),
-          bottomRight: Radius.circular(styleMap['rounded-br']),
-          bottomLeft: Radius.circular(styleMap['rounded-bl']),
+          topLeft: Radius.circular(styleMap['rounded-tl'] ?? 0.0),
+          topRight: Radius.circular(styleMap['rounded-tr'] ?? 0.0),
+          bottomRight: Radius.circular(styleMap['rounded-br'] ?? 0.0),
+          bottomLeft: Radius.circular(styleMap['rounded-bl'] ?? 0.0),
         ),
       ),
       alignSelf: styleMap['align-self'],

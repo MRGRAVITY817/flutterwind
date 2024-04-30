@@ -24,7 +24,7 @@ Map<String, double> parseBorderRadius(List<String> classes) {
       classes.where((e) => e.startsWith("rounded")).toList();
 
   if (onlyRoundedClasses.isEmpty) {
-    return _noRadius;
+    return {};
   }
 
   // each classname can vary in details (ex) rounded, rounded-lg, rounded-tl-md, etc.

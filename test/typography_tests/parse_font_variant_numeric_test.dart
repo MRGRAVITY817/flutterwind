@@ -6,6 +6,14 @@ void main() {
   final sut = parseFontVariantNumeric;
 
   group('parse font variant numeric', () {
+    test('empty', () {
+      final input = <String>[];
+
+      final output = sut(input);
+
+      expect(output, {});
+    });
+
     test("normal nums", () {
       final input = ["normal-nums"];
 

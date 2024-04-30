@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
 Map<String, List<FontFeature>> parseFontVariantNumeric(List<String> classes) {
+  final onlyNumericClasses =
+      classes.where((e) => fontFeatureMap.keys.any(e.startsWith)).toList();
+
+  if (onlyNumericClasses.isEmpty) {
+    return {};
+  }
+
   return {
-    "font-features-numeric": classes
+    "font-features-numeric": onlyNumericClasses
         .map((e) => fontFeatureMap[e])
         .where((element) => element != null)
         .map((e) => e!)

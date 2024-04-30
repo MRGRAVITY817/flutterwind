@@ -37,10 +37,7 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['rounded-tl'], 0.0);
-      expect(output['rounded-tr'], 0.0);
-      expect(output['rounded-br'], 0.0);
-      expect(output['rounded-bl'], 0.0);
+      expect(output, {});
     });
 
     test('parse border radius with multiple rounded classes', () {

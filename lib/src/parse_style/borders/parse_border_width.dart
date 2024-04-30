@@ -21,7 +21,7 @@ Map<String, double> parseBorderWidth(List<String> classes) {
       classes.where((element) => element.startsWith('border')).toList();
 
   if (borderWidthClasses.isEmpty) {
-    return _zeroBorder;
+    return {};
   }
 
   final borderWidth = borderWidthClasses
@@ -36,7 +36,7 @@ Map<String, double> parseOneBorderWidth(String className) {
       className.split("-").where((item) => item != "border").toSet();
 
   if (splitted.length > 3) {
-    return _zeroBorder;
+    return {};
   }
 
   final sideSet = _sideMap.keys.toSet();

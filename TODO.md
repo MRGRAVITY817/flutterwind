@@ -1,5 +1,11 @@
 # TODOs
 
+## Core concepts
+- [ ] Responsive Design
+- [ ] Hover, Focus and other states
+- [ ] Dark Mode
+- [ ] Pseudo Elements
+
 ## Layout
 - [ ] Aspect Ratio
 - [ ] Container

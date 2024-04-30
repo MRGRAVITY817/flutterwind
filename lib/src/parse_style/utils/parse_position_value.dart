@@ -5,8 +5,17 @@ Map<String, dynamic> parsePositionValue({
   required List<String> positionList,
   required Map<String, dynamic> valueMap,
   required dynamic defaultValue,
+  bool separatePrefixAndPosition = false,
 }) {
-  final splitted = className.split("-").where((item) => item != prefix).toSet();
+  final initialClassName = separatePrefixAndPosition
+      ? separatePrefix(
+          className: className,
+          prefix: prefix,
+        )
+      : className;
+
+  final splitted =
+      initialClassName.split("-").where((item) => item != prefix).toSet();
 
   if (splitted.length > 3) {
     return {};
@@ -27,7 +36,23 @@ Map<String, dynamic> parsePositionValue({
   final valueKey = valueSet.intersection(splitted);
   final value = valueKey.isNotEmpty ? valueMap[valueKey.first]! : defaultValue;
 
+  String mapKey(String position) {
+    return separatePrefixAndPosition ? "$prefix$position" : "$prefix-$position";
+  }
+
   return {
-    for (final position in positions) "$prefix-$position": value,
+    for (final position in positions) mapKey(position): value,
   };
+}
+
+/// "pt-4" -> "p-t-4
+String separatePrefix({
+  required String className,
+  required String prefix,
+}) {
+  if (className.startsWith("$prefix-")) {
+    return className;
+  }
+
+  return "$prefix-${className.replaceFirst(prefix, "")}";
 }

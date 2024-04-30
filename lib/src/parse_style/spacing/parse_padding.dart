@@ -1,4 +1,7 @@
+import 'package:flutterwind/src/parse_style/defaults/default_spacing_scale.dart';
 import 'package:flutterwind/src/parse_style/spacing/parse_spacing.dart';
+import 'package:flutterwind/src/parse_style/spacing/spacing_constants.dart';
+import 'package:flutterwind/src/parse_style/utils/parse_position_value.dart';
 
 /// Parse padding classes to map.
 ///
@@ -19,16 +22,45 @@ import 'package:flutterwind/src/parse_style/spacing/parse_spacing.dart';
 ///   "pl": 4.0,
 /// }
 Map<String, double> parsePadding(List<String> classes) {
-  return parseSpacing(
-    classes: classes,
-    prefixMap: {
-      "every": "p",
-      "x": "px",
-      "y": "py",
-      "t": "pt",
-      "r": "pr",
-      "b": "pb",
-      "l": "pl",
-    },
+  final onlyPaddingClasses =
+      classes.where((e) => prefixList.any(e.startsWith)).toList();
+
+  if (onlyPaddingClasses.isEmpty) {
+    return {};
+  }
+
+  final paddingMap = onlyPaddingClasses
+      .map(parseOnePadding)
+      .fold(_noPadding, (value, element) => {...value, ...element});
+
+  return paddingMap;
+}
+
+Map<String, dynamic> parseOnePadding(String className) {
+  return parsePositionValue(
+    className: className,
+    prefix: "p",
+    positionMap: spacingPositionMap,
+    positionList: spacingPositionList,
+    valueMap: defaultSpacingScale,
+    defaultValue: defaultSpacingScale["1"],
+    separatePrefixAndPosition: true,
   );
 }
+
+const Map<String, double> _noPadding = {
+  "pt": 0.0,
+  "pr": 0.0,
+  "pb": 0.0,
+  "pl": 0.0,
+};
+
+List<String> prefixList = [
+  "p-",
+  "pt-",
+  "pr-",
+  "pb-",
+  "pl-",
+  "px-",
+  "py-",
+];

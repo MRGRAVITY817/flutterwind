@@ -96,7 +96,7 @@ class MyHomePage extends StatelessWidget {
             SizedBox(height: 20),
             FwGrid(
               style:
-                  "grid-cols-4 grid-rows-4 gap-4 justify-items-start grid-flow-col",
+                  "grid-cols-4 grid-rows-4 gap-4 justify-items-start grid-flow-col mt-20",
               children: [
                 FwContainer(
                   style: "h-12 bg-blue-500 rounded-xl p-4",

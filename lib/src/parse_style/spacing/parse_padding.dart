@@ -1,5 +1,4 @@
 import 'package:flutterwind/src/parse_style/defaults/default_spacing_scale.dart';
-import 'package:flutterwind/src/parse_style/spacing/parse_spacing.dart';
 import 'package:flutterwind/src/parse_style/spacing/spacing_constants.dart';
 import 'package:flutterwind/src/parse_style/utils/parse_position_value.dart';
 
@@ -23,7 +22,7 @@ import 'package:flutterwind/src/parse_style/utils/parse_position_value.dart';
 /// }
 Map<String, double> parsePadding(List<String> classes) {
   final onlyPaddingClasses =
-      classes.where((e) => prefixList.any(e.startsWith)).toList();
+      classes.where((e) => _prefixList.any(e.startsWith)).toList();
 
   if (onlyPaddingClasses.isEmpty) {
     return {};
@@ -55,7 +54,7 @@ const Map<String, double> _noPadding = {
   "pl": 0.0,
 };
 
-List<String> prefixList = [
+List<String> _prefixList = [
   "p-",
   "pt-",
   "pr-",

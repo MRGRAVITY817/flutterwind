@@ -10,10 +10,10 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['border-radius-tl'], 8.0);
-      expect(output['border-radius-tr'], 8.0);
-      expect(output['border-radius-br'], 8.0);
-      expect(output['border-radius-bl'], 8.0);
+      expect(output['rounded-tl'], 8.0);
+      expect(output['rounded-tr'], 8.0);
+      expect(output['rounded-br'], 8.0);
+      expect(output['rounded-bl'], 8.0);
     });
 
     test('each border corners', () {
@@ -26,10 +26,10 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['border-radius-tl'], 4.0);
-      expect(output['border-radius-tr'], 6.0);
-      expect(output['border-radius-br'], 8.0);
-      expect(output['border-radius-bl'], 12.0);
+      expect(output['rounded-tl'], 4.0);
+      expect(output['rounded-tr'], 6.0);
+      expect(output['rounded-br'], 8.0);
+      expect(output['rounded-bl'], 12.0);
     });
 
     test('parse border radius with empty input', () {
@@ -37,10 +37,10 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['border-radius-tl'], 0.0);
-      expect(output['border-radius-tr'], 0.0);
-      expect(output['border-radius-br'], 0.0);
-      expect(output['border-radius-bl'], 0.0);
+      expect(output['rounded-tl'], 0.0);
+      expect(output['rounded-tr'], 0.0);
+      expect(output['rounded-br'], 0.0);
+      expect(output['rounded-bl'], 0.0);
     });
 
     test('parse border radius with multiple rounded classes', () {
@@ -48,10 +48,10 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['border-radius-tl'], 6.0);
-      expect(output['border-radius-tr'], 8.0);
-      expect(output['border-radius-br'], 8.0);
-      expect(output['border-radius-bl'], 8.0);
+      expect(output['rounded-tl'], 6.0);
+      expect(output['rounded-tr'], 8.0);
+      expect(output['rounded-br'], 8.0);
+      expect(output['rounded-bl'], 8.0);
     });
 
     test('parse border radius with invalid rounded class', () {
@@ -59,10 +59,10 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['border-radius-tl'], 0.0);
-      expect(output['border-radius-tr'], 0.0);
-      expect(output['border-radius-br'], 0.0);
-      expect(output['border-radius-bl'], 0.0);
+      expect(output['rounded-tl'], 0.0);
+      expect(output['rounded-tr'], 0.0);
+      expect(output['rounded-br'], 0.0);
+      expect(output['rounded-bl'], 0.0);
     });
 
     test('parse border radius with empty rounded class', () {
@@ -70,10 +70,10 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['border-radius-tl'], 0.0);
-      expect(output['border-radius-tr'], 0.0);
-      expect(output['border-radius-br'], 0.0);
-      expect(output['border-radius-bl'], 0.0);
+      expect(output['rounded-tl'], 0.0);
+      expect(output['rounded-tr'], 0.0);
+      expect(output['rounded-br'], 0.0);
+      expect(output['rounded-bl'], 0.0);
     });
   });
 }

@@ -1,3 +1,5 @@
+import 'package:flutterwind/src/parse_style/utils/parse_position_value.dart';
+
 /// Parse border radius classes.
 ///
 /// Example:
@@ -11,10 +13,10 @@
 /// Output:
 /// ```
 /// {
-///   "border-radius-tl": 4.0,
-///   "border-radius-tr": 6.0,
-///   "border-radius-br": 8.0,
-///   "border-radius-bl": 12.0,
+///   "rounded-tl": 4.0,
+///   "rounded-tr": 6.0,
+///   "rounded-br": 8.0,
+///   "rounded-bl": 12.0,
 /// }
 /// ```
 Map<String, double> parseBorderRadius(List<String> classes) {
@@ -34,43 +36,24 @@ Map<String, double> parseBorderRadius(List<String> classes) {
   return borderRadius;
 }
 
-Map<String, double> parseOneBorderRadius(String className) {
-  final splitted =
-      className.split("-").where((item) => item != "rounded").toSet();
-
-  // check if splitted contains more than 3 classes.
-  if (splitted.length > 3) {
-    return _noRadius;
-  }
-
-  final cornerSet = _cornerMap.keys.toSet();
-  final sizeSet = _sizeMap.keys.toSet();
-
-  // check if splitted contains classes which is not a corner nor size.
-  final validClassSet = {...cornerSet, ...sizeSet};
-  if (splitted.isNotEmpty && splitted.intersection(validClassSet).isEmpty) {
-    return {};
-  }
-
-  final cornerKey = cornerSet.intersection(splitted);
-  final corners =
-      cornerKey.isNotEmpty ? _cornerMap[cornerKey.first]! : _everyCorners;
-
-  final sizeKey = sizeSet.intersection(splitted);
-  final size = sizeKey.isNotEmpty ? _sizeMap[sizeKey.first]! : 4.0;
-
-  return {
-    for (final corner in corners) "border-radius-$corner": size,
-  };
+Map<String, dynamic> parseOneBorderRadius(String className) {
+  return parsePositionValue(
+    className: className,
+    prefix: "rounded",
+    positionMap: _cornerMap,
+    positionList: _everyCorners,
+    valueMap: _sizeMap,
+    defaultValue: 4.0,
+  );
 }
 
 const List<String> _everyCorners = ["tl", "tr", "br", "bl"];
 
 const _noRadius = <String, double>{
-  "border-radius-tl": 0.0,
-  "border-radius-tr": 0.0,
-  "border-radius-br": 0.0,
-  "border-radius-bl": 0.0
+  "rounded-tl": 0.0,
+  "rounded-tr": 0.0,
+  "rounded-br": 0.0,
+  "rounded-bl": 0.0
 };
 
 const Map<String, List<String>> _cornerMap = {

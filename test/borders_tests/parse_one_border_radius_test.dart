@@ -9,10 +9,10 @@ void main() {
 
       final output = sut(input);
 
-      expect(output['border-radius-tl'], 4.0);
-      expect(output['border-radius-tr'], 4.0);
-      expect(output['border-radius-br'], 4.0);
-      expect(output['border-radius-bl'], 4.0);
+      expect(output['rounded-tl'], 4.0);
+      expect(output['rounded-tr'], 4.0);
+      expect(output['rounded-br'], 4.0);
+      expect(output['rounded-bl'], 4.0);
     });
   });
 }

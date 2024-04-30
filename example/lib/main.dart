@@ -27,11 +27,11 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            const FwContainer(
+            FwContainer(
               style: "w-full",
               child: Row(
                 children: [
@@ -59,8 +59,8 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
-            const FwFlex(
+            SizedBox(height: 20),
+            FwFlex(
               style: "flex-row h-96 justify-end items-center",
               children: [
                 FwContainer(
@@ -93,13 +93,13 @@ class MyHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             FwGrid(
               style:
                   "grid-cols-4 grid-rows-4 gap-4 justify-items-start grid-flow-col",
               children: [
                 FwContainer(
-                  style: "h-12 bg-blue-500",
+                  style: "h-12 bg-blue-500 rounded-xl p-4",
                   child: FwText(
                     style: "text-lg text-white font-bold",
                     text: "Hello",

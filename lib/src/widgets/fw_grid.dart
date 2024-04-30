@@ -37,8 +37,8 @@ class FwGrid extends StatelessWidget {
           columns,
           (index) => auto,
         ),
-        rowSizes: List.generate(
-          rowCount(children, columns),
+        rowSizes:  List.generate(
+          fwStyle.rows ?? rowCount(children, columns),
           (index) => auto,
         ),
         children: children,

@@ -31,9 +31,9 @@
 - [ ] Flex Shrink
 - [ ] Order
 - [x] Grid Template Columns
-- [ ] Grid Column Start / End
-- [ ] Grid Template Rows
-- [ ] Grid Row Start / End
+- [x] Grid Column Start / End
+- [x] Grid Template Rows
+- [x] Grid Row Start / End
 - [ ] Grid Auto Flow
 - [ ] Grid Auto Columns
 - [ ] Grid Auto Rows

@@ -46,13 +46,20 @@ class FwContainer extends StatelessWidget {
     }
 
     if (containerStyle.columnStart == null &&
-        containerStyle.columnSpan == null) {
+        containerStyle.columnSpan == null &&
+        containerStyle.rowStart == null &&
+        containerStyle.rowSpan == null) {
       return styledChild;
     }
 
     return styledChild.withGridPlacement(
-      columnStart: containerStyle.columnStart ?? 1,
+      columnStart: containerStyle.columnStart != null
+          ? containerStyle.columnStart! - 1
+          : 0,
       columnSpan: containerStyle.columnSpan ?? 1,
+      rowStart:
+          containerStyle.rowStart != null ? containerStyle.rowStart! - 1 : 0,
+      rowSpan: containerStyle.rowSpan ?? 1,
     );
   }
 }
@@ -66,6 +73,8 @@ class FwContainerStyle {
   final CrossAxisAlignment? alignSelf;
   final int? columnStart;
   final int? columnSpan;
+  final int? rowStart;
+  final int? rowSpan;
 
   FwContainerStyle({
     this.padding,
@@ -76,6 +85,8 @@ class FwContainerStyle {
     this.alignSelf,
     this.columnStart,
     this.columnSpan,
+    this.rowStart,
+    this.rowSpan,
   });
 
   factory FwContainerStyle.from(BuildContext context, String style) {
@@ -145,7 +156,9 @@ class FwContainerStyle {
       ),
       alignSelf: styleMap['align-self'],
       columnStart: styleMap['grid-column-start'],
-      columnSpan: styleMap['grid-column-end'],
+      columnSpan: styleMap['grid-column-span'],
+      rowStart: styleMap['grid-row-start'],
+      rowSpan: styleMap['grid-row-span'],
     );
   }
 }

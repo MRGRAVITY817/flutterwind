@@ -55,10 +55,10 @@ class FwContainer extends StatelessWidget {
     return styledChild.withGridPlacement(
       columnStart: containerStyle.columnStart != null
           ? containerStyle.columnStart! - 1
-          : 0,
+          : null,
       columnSpan: containerStyle.columnSpan ?? 1,
       rowStart:
-          containerStyle.rowStart != null ? containerStyle.rowStart! - 1 : 0,
+          containerStyle.rowStart != null ? containerStyle.rowStart! - 1 : null,
       rowSpan: containerStyle.rowSpan ?? 1,
     );
   }
@@ -75,6 +75,7 @@ class FwContainerStyle {
   final int? columnSpan;
   final int? rowStart;
   final int? rowSpan;
+  final String? justifyItems;
 
   FwContainerStyle({
     this.padding,
@@ -87,6 +88,7 @@ class FwContainerStyle {
     this.columnSpan,
     this.rowStart,
     this.rowSpan,
+    this.justifyItems,
   });
 
   factory FwContainerStyle.from(BuildContext context, String style) {
@@ -159,6 +161,7 @@ class FwContainerStyle {
       columnSpan: styleMap['grid-column-span'],
       rowStart: styleMap['grid-row-start'],
       rowSpan: styleMap['grid-row-span'],
+      justifyItems: styleMap['justify-items'],
     );
   }
 }

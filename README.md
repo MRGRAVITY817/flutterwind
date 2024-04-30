@@ -2,12 +2,11 @@
 
 Style your Flutter widgets with TailwindCSS-like syntax.
 
-## Example
+## Example: A simple card
+
+###  Without Flutterwind - 39 lines of code
 
 ```dart
-// Example: A simple card
-
-// Without Flutterwind - 39 lines of code
 Container(
   padding: EdgeInsets.all(8),
   margin: EdgeInsets.all(8),
@@ -47,12 +46,15 @@ Container(
     ],
   ),
 )
+```
 
-// With Flutterwind - 17 lines of code
+### With Flutterwind - 17 lines of code 😁
+
+```dart
 FwContainer(
   style: "p-8 m-8 bg-white rounded-lg shadow-md",
-  child: Column.fw(
-    style: "items-center justify-center",
+  child: FwFlex(
+    style: "flex-col items-center justify-center",
     children: [
       FwText(
         "Hello World",

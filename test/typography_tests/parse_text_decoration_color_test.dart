@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterwind/src/parse_style/default_color_palette.dart';
+import 'package:flutterwind/src/parse_style/defaults/default_color_palette.dart';
 import 'package:flutterwind/src/parse_style/typography/parse_text_decoration_color.dart';
 
 void main() {

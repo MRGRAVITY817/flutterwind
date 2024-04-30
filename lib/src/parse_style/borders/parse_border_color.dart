@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutterwind/src/parse_style/default_color_palette.dart';
+import 'package:flutterwind/src/parse_style/defaults/default_color_palette.dart';
 
 /// Parse border color classes to map.
 ///

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterwind/filter_styles/filter_styles.dart';
+import 'package:flutterwind/src/parse_style/filter_styles/filter_styles.dart';
 
 void main() {
   final sut = filterStyles;
